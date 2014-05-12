@@ -32,10 +32,10 @@ parent::__construct();
          //Si Existe Post y es igual a uno
         if($this->input->post('post') && $this->input->post('post')==1)
         {
-            $this->form_validation->set_rules('nombre_sucursal', 'nombre_sucursal', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('telefono_sucursal', 'telefono_sucursal', 'required|numeric|trim|xss_clean');
-            $this->form_validation->set_rules('direccion_sucursal', 'direccion_sucursal', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('departamento', 'departamento', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('nombre_sucursal', 'Nombre Sucursal', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('telefono_sucursal', 'Telefono', 'required|numeric|trim|xss_clean');
+            $this->form_validation->set_rules('direccion_sucursal', 'Direccion', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('departamento', 'Departamento', 'required|trim|xss_clean');
              
             $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
             $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
@@ -45,7 +45,10 @@ parent::__construct();
                 $telefono_sucursal = $this->input->post('telefono_sucursal');
                 $direccion_sucursal = $this->input->post('direccion_sucursal');
                 $departamento = $this->input->post('departamento');
-                $this->crud_model->agregar_sucursal($nombre_sucursal,$telefono_sucursal,$direccion_sucursal,$departamento);               
+                $this->crud_model->agregar_sucursal($nombre_sucursal,$telefono_sucursal,$direccion_sucursal,$departamento);
+
+
+                redirect('crud');               
             }
         }
 
@@ -69,10 +72,10 @@ parent::__construct();
             //Si existe el post para editar
             if($this->input->post('post') && $this->input->post('post')==1)
             {
-            $this->form_validation->set_rules('nombre_sucursal', 'nombre_sucursal', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('telefono_sucursal', 'telefono_sucursal', 'required|numeric|trim|xss_clean');
-            $this->form_validation->set_rules('direccion_sucursal', 'direccion_sucursal', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('departamento', 'departamento', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('nombre_sucursal', 'Nombre_sucursal', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('telefono_sucursal', 'Telefono_sucursal', 'required|numeric|trim|xss_clean');
+            $this->form_validation->set_rules('direccion_sucursal', 'Direccion_sucursal', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('departamento', 'Departamento', 'required|trim|xss_clean');
              
             $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
             $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
@@ -84,14 +87,14 @@ parent::__construct();
                 $departamento = $this->input->post('departamento');
                 $this->crud_model->actualizar_sucursal($id_sucursal,$nombre_sucursal,$telefono_sucursal,$direccion_sucursal,$departamento);
                     //redireccionamos al controlador CRUD
-                    redirect('crud/index');               
+                    redirect('crud');               
                 }
             }
             //devolvemos los datos del usuario
             $data['dato'] = $respuesta;
             //cargamos la vista
             $this->load->view('header/header');
-            $this->load->view('form/editar_sucursal.php',$data);
+            $this->load->view('form/editar_sucursal',$data);
             $this->load->view('footer');
         }
     }
