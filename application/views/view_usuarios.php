@@ -120,11 +120,13 @@
 					if( data.type==false ){ 
 						dialogo('Notificación', data.message); 
 					}else{ 
+						exd = new Date();
+						exd.getDate();
 						var v=data.usuario[0]; 
 						$('#id_rol').val( v.id_rol ); 
 						$('#nombre_usuario').val( v.nombre_usuario ); 
 						$('#nombre_completo').val( v.nombre_completa );
-							
+						$('#fecha_creacion').val( exd.fecha_creacion );
 						load_form( accion ); 
 					} 
 				}, 

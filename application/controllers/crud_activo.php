@@ -13,11 +13,36 @@ parent::__construct();
         $this->load->helper(array('form'));
         $this->load->library('form_validation');
     }
-     
+  
+public function index_nuevo()
+{
+        $cuenta    = $this->crud_model_activo->get_cuentas();
+        $proveedor = $this->crud_model_activo->get_proveedor();
+        $sucursal  = $this->crud_model_activo->get_sucursal();
+        $area      = $this->crud_model_activo->get_area();
+        $empleado  = $this->crud_model_activo->get_empleado();
+
+ //creamos variables  para pasarle a la vista
+    $datac['cat_cuentas_contables'] = $cuenta;
+    $datap['cat_proveedor']         = $proveedor;
+    $datas['cat_sucursal']          = $sucursal;
+    $dataa['cat_area']              = $area;
+    $datae['cat_empleado']          = $empleado;
+
+      //cargamos nuestra vista
+        $this->load->view('header/header');
+        $this->load->view('form/a_activofijo',$datac, $datap, $datas, $dataa, $datae);
+        $this->load->view('footer');
+    
+
+}
+
     public function index()
     {
-        //obtenemos todos los usuarios
-        $activo = $this->crud_model_activo->get_activos();
+        //obtenemos todos los activos
+        $activo    = $this->crud_model_activo->get_activos();
+
+        
         //creamos una variable usuarios para pasarle a la vista
         $data['cat_activo_fijo'] = $activo;
         //cargamos nuestra vista

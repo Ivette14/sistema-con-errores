@@ -22,11 +22,15 @@
               </div>
 
                 <div class="form-group">
-                  <label for="disabledSelect">Cuenta Contable</label>
-                  <select id="disabledSelect" class="form-control">
-                    <option>Seleccione una Cuenta</option>
-                  </select>
-                </div>
+                  <label for="disabledSelect">Cuenta</label>
+
+                <select class="form-control" name="id_cuenta" value="<?= set_value('id_cuentacontable');?>">
+                <?php
+                  foreach ('cat_cuentas_contables' as $i => $id_cuentacontable)
+                  echo '<option values="',$i,'">',$id_cuentacontable,'</option>';
+                ?>
+                </select>
+                 </div> 
 
               <div class="form-group">
                 <label>Nombre del Activo</label>
