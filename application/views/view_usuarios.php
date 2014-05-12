@@ -6,10 +6,11 @@
 	<table class="completa table"> 
 		<thead> 
 			<tr> 
-			    <th>Codigo Empleado</th>
+			    
 			     <th>Rol de Usuario</th>
-				<th>Nombre</th> 
 				<th>Usuario</th> 
+				<th>Nombre</th> 
+			
 			
 				<th></th> 
 			</tr> 
@@ -26,12 +27,6 @@
 		<!-- HIDDEN --> 
 		<input type="hidden" name="id_usuario" id="id_usuario"> 
 		<table class="completa"> 
-		<tr> 
-				<td><label for="nombre">Codigo De Empleado: *</label></td> 
-				<td> 
-					<input type="text" class="form-control" name="id_empleado" id="id_empleado"> 
-				</td> 
-			</tr> 
 			<tr> 
 				<td><label for="nombre">Rol de Usuario: *</label></td> 
 				<td> 
@@ -89,10 +84,9 @@
 					var fila=''; 
 					$.each(data.lista, function( k, v ){ 
 						fila  ='<tr tabindex="2014'+v.id_usuario+'" >';
-						 fila +='<td>'+v.id_empleado+'</td>';
 						 fila +='<td>'+v.id_rol+'</td>';
-						fila +='<td>'+v.nombre_completo+'</td>'; 
-						fila +='<td>'+v.nombre_usuario+'</td>'; 
+						 fila +='<td>'+v.nombre_usuario+'</td>'; 
+						fila +='<td>'+v.nombre_completo+'</td>'; 	
 						fila +='<td>'; 
 						fila += '<i class="glyphicon glyphicon-pencil" onclick="prepara_form(\'Editar\', '+v.id_usuario+')" title="EDITAR"></i>'; 
 						fila +='<i class="glyphicon glyphicon-remove" onclick="confirm_delete( '+v.id_usuario+' )" title="ELIMINAR"></i>'; 
@@ -127,9 +121,10 @@
 						dialogo('Notificación', data.message); 
 					}else{ 
 						var v=data.usuario[0]; 
-						$('#id_empleado').val( v.id_empleado ); 
+						$('#id_rol').val( v.id_rol ); 
 						$('#nombre_usuario').val( v.nombre_usuario ); 
-						$('#nombre_completo').val( v.nombre_completa ); 
+						$('#nombre_completo').val( v.nombre_completa );
+							
 						load_form( accion ); 
 					} 
 				}, 

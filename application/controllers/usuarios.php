@@ -57,7 +57,6 @@ class usuarios extends CI_Controller {
 	function save_form(){ 
 		$fecha = time();
 		$data=array(); 
-		$this->form_validation->set_rules('id_empleado', 'id_empleado', 'trim|required|xss_clean'); 
 		   $this->form_validation->set_rules('id_rol', 'id_rol', 'required|numeric|trim|xss_clean');
 		$this->form_validation->set_rules('nombre_usuario', 'nombre_usuario', 'trim|required|xss_clean'); 
 		$this->form_validation->set_rules('nombre_completo', 'nombre_completo', 'trim|required|xss_clean'); 
