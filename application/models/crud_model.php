@@ -15,10 +15,10 @@
     public function agregar_sucursal($nombre_sucursal,$telefono_sucursal,$direccion_sucursal,$departamento)
     {
         $this->db->insert('cat_sucursal',array(
-            'nombre_sucursal'      => $nombre_sucursal,
-            'telefono_sucursal'    => $telefono_sucursal,
-            'direccion_sucursal'   => $direccion_sucursal,
-            'departamento'         => $departamento
+            'nombre_sucursal'   => $nombre_sucursal,
+            'telefono_sucursal' => $telefono_sucursal,
+            'direccion_sucursal'=> $direccion_sucursal,
+            'departamento'      => $departamento
         ));
     }
     //actualizamos los datos de un usuario por id
@@ -26,10 +26,10 @@
     {
         $this->db->where('id_sucursal', $id_sucursal);
         $this->db->update('cat_sucursal',array(
-            'nombre_sucursal'=> $nombre_sucursal,
+            'nombre_sucursal'   => $nombre_sucursal,
             'telefono_sucursal' => $telefono_sucursal,
-            'direccion_sucursal' => $direccion_sucursal,
-            'departamento' => $departamento
+            'direccion_sucursal'=> $direccion_sucursal,
+            'departamento'      => $departamento
         ));
     }
     //eliminamos un usuario por id
