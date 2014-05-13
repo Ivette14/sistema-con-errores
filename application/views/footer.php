@@ -1,6 +1,8 @@
                     <footer class="footer">
+                        <br>
+                        <br><br><center>Sistema de Control de Activo Fijo</center>
 
-                        © 2014 Sistema de Control de Activo Fijo
+                        <center>Derechos Reservados 2014</center>
 
                     </footer>       
                     <!-- /.panel-footer -->

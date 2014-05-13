@@ -27,6 +27,14 @@ class Insertar extends CI_Model {
 
    }
 
+   function insertar_empleado($data)
+   {
+    $this->db->insert('cat_empleado', $data);
+      
+      return $this->db->insert_id();
+
+   }
+
 }
   
 
