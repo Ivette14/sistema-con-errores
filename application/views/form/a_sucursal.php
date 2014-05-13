@@ -1,6 +1,6 @@
-          <div class="row">
-          <div class="col-lg-12">
-            <center><h1>Sucursales</h1></center>
+<div class="row">
+  <div class="col-lg-12">
+      <center><h1>Sucursales</h1></center>
             <ol class="breadcrumb">
              
               <li class="active"></i><h4> Agregar Sucursal</h4></li>
@@ -32,23 +32,30 @@
                   <label for="disabledSelect">Dapartamento</label>
                   <select id="disabledSelect" name="departamento" class="form-control" value="<?= set_value('departamento');?>">
                   <option>Seleccione un Dapartamento</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
+                  <option>Ahuchapan</option>
+                  <option>Santa Ana</option>
+                  <option>La Libertad</option>
+                  <option>Chalatenango</option>
+                  <option>Cuscatlan</option>
+                  <option>San Salvador</option>
+                  <option>La Paz</option>
+                  <option>Cabañas</option>
+                  <option>San Vicente</option>
+                  <option>Usulutan</option>
+                  <option>San Miguel</option>
+                  <option>Morazan</option>
+                  <option>La Union</option>
                 </select>
               </div>
  
 
               <div class="form-group">
-                <input type="hidden" name="post" value="1" />                
+                <input  type="hidden" name="post" value="1" />                
                 <button type="submit" value="Agregar" class="btn btn-primary">Guardar</button>
                 <button type="button" onclick=location="<?php echo base_url().'crud/index'; ?>" class="btn btn-primary">Cancelar</button>
               </div>              
-
-
             </form>
 
            </div>
         </div><!-- /.row -->
+      <?= validation_errors(); ?>

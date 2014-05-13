@@ -1,100 +1,60 @@
-        <div class="row">
-          <div class="col-lg-12">
-            <center>
-              <h1>Traslado de Activo Fijo <small></small>    </h1></center>
-          </div>
-        </div>
-         <ol class="breadcrumb">
+ <div class="row">
+  <div class="col-lg-12">
+      <center><h1>Traslados de Activo Fijo</h1></center>
+            <ol class="breadcrumb">
+             
+              <li class="active"></i><h4> Agregar Traslado</h4></li>
             </ol>
-  <form>
-    <div>
+            
+          </div>
+        </div><!-- /.row -->
 
-<table >
-  <tr>
-    <td width="148"> <label>Codigo Traslado de Activo </label> </td>
-    <td width="522"><span class="form-group">
-      <input size="25" placeholder="computer992">
-    </span></td>
-    
-  </tr>
-  <tr>
-  <td height="21">   </td>
-  <td>   </td>
-  </tr>
-  <tr>
-    <td><span class="form-group">
-      <label>Codigo Activo </label>
-    </span></td>
-    <td><span class="form-group">
-      <input size="25">
-    </span></td>
-  </tr>
-   <tr>
-  <td height="21">   </td>
-  <td>   </td>
-  </tr>
-  <tr>
-    <td></td>
-  <td></td>
-  </tr>
-  <tr>
-    <td><span class="form-group">
-    <label>Motivo de Traslado</label></span></td>
-    <td><span class="form-group">
-      <textarea name="textarea2" cols="80" rows="3"></textarea>
-    </span></td>
-  </tr>
-   <tr>
-  <td height="21">   </td>
-  <td>   </td>
-  </tr>
-  <tr>
-    <td> <label>Fecha de Traslado: </label></td>
-    <td><div class="form-group">
-                   <input type="date" name="fecha">
-                
-              </div></td>
-  </tr>
-   <tr>
-  <td height="21">   </td>
-  <td>   </td>
-  </tr>
-  <tr>
-    <td><span class="form-group">
-      <label>Solicitud de Traslado</label></span></td>
-    <td>   <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-      Ok</td>
-  </tr>
-   <tr>
-  <td height="21">   </td>
-  <td>   </td>
-  </tr>
-  <tr>
-    <td> <label>Emisor de Traslado </label></td>
-    <td><span class="form-group">
-      <input size="25">
-    </span></td>
-  </tr>
-  <tr>
-  <td height="21">   </td>
-  <td>   </td>
-  </tr>
-  <tr>
-    <td> <label>Receptor de Traslado </label></td>
-    <td><span class="form-group">
-      <input size="25">
-    </span></td>
-  </tr>
-  <tr>
-  <td height="21">   </td>
-  <td>   </td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><button type="submit" class="btn btn-primary">Guardar</button>
-      <button type="button" onclick=location="<?php echo base_url().'direccion/hreftrasla'; ?>" class="btn btn-primary">Cancelar</button>
-  </tr>
-</table>
-<p><script src="js/bootstrap.js"></script>
-  </div>
- </form>
+        <div class="row">
+          <div class="col-lg-6">
+
+            <form method="post" role="form">
+              <div class="form-group">
+                <label>Codigo Traslado de Activo </label>
+                <input name="codigo_traslado" class="form-control" value="<?= set_value('codigo_traslado');?>">
+              </div>
+
+               <div class="form-group">
+                <label>Codigo Activo </label>
+                <input name="codigo_activo" class="form-control" value="<?= set_value('codigo_activo');?>">
+              </div>
+
+              <div class="form-group">
+                <label>Motivo de Traslado </label>
+                <input name="motivo_taslado" class="form-control" value="<?= set_value('motivo_taslado');?>">
+              </div>
+
+              <div class="form-group">
+                <label>Fecha de Traslado </label>
+                <input type="date" name="fecha" name="fecha_traslado" class="form-control" value="<?= set_value('fecha_traslado');?>">
+              </div>
+
+              <div class="form-group">
+                <label>Solicitud de Traslado </label>                
+                <input type="radio" name="solicitud_traslado" id="optionsRadios1" value="<?= set_value('solicitud_traslado');?>"> Ok
+              </div>
+
+              <div class="form-group">
+                <label>Emisor de Traslado </label>
+                <input name="emisor_traslado" class="form-control" value="<?= set_value('emisor_traslado');?>">
+              </div>
+
+              <div class="form-group">
+                <label>Receptor de Traslado </label>
+                <input name="receptor_traslado" class="form-control" value="<?= set_value('receptor_traslado');?>">
+              </div>
+
+              <div class="form-group">
+                <input  type="hidden" name="post" value="1" />                
+                <button type="submit" value="Agregar" class="btn btn-primary">Guardar</button>
+                <button type="button" onclick=location="<?php echo base_url().'crud_traslado'; ?>" class="btn btn-primary">Cancelar</button>
+              </div>              
+            </form>
+
+           </div>
+        </div><!-- /.row -->
+      <?= validation_errors(); ?>

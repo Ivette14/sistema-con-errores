@@ -10,39 +10,42 @@
         </div><!-- /.row -->
 
             <!-- /.row -->
-        <div class="form-group"> <button type="button" onclick=location="<?php echo base_url().'direccion/hrefa_trasla'; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Agregar</button></div>       
+        <div class="form-group"> <button type="button" onclick=location="<?php echo base_url().'crud_traslado/Agregar'; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Agregar</button></div>       
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <!-- /.panel-heading -->
-                      <form action="" id="tabla_sucursal" method="post" role="form">
+                      <form method="post" role="form">
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Nombre de la Sucursal</th>
-                                            <th>Telefono</th>
-                                            <th>Direccion</th>
-                                            <th>Departamento</th>
+                                            <th>Codigo Traslado de Activo</th>
+                                            <th>Codigo de Activo</th>
+                                            <th>Motivo de Traslado</th>
+                                            <th>Fecha de Traslado</th>
+                                            <th>Solicitud de Traslado</th>
+                                            <th>Emisor de Traslado</th>
+                                            <th>Receptor de Traslado</th>
                                             <th>Editar</th>
                                             <th>Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                            <?php if(isset($sucursales)){ ;?>
-                                            <?php foreach ($sucursales as $sucursal):?>
+                                            <?php foreach ($traslados as $traslado):?>
                                             <tr>
-                                            <td><?= $sucursal->nombre_sucursal?></td>   
-                                            <td><?= $sucursal->telefono_sucursal?></td> 
-                                            <td><?= $sucursal->direccion_sucursal?></td> 
-                                            <td><?= $sucursal->departamento?></td>
-                                            <td><a href="<?= base_url().'crud/actualizar_sucursal/'.$sucursal->id_sucursal?>">Editar</a></td>
-                                            <td><a href="<?= base_url().'crud/eliminar_sucursal/'.$sucursal->id_sucursal?>">Eliminar</a></td> 
+                                            <td><?= $traslado->codigo_traslado?></td>   
+                                            <td><?= $traslado->codigo_activo?></td> 
+                                            <td><?= $traslado->motivo_traslado?></td> 
+                                            <td><?= $traslado->fecha_traslado?></td>
+                                            <td><?= $traslado->solicitud_traslado?></td>
+                                            <td><?= $traslado->emisor_traslado?></td>
+                                            <td><?= $traslado->receptor_traslado?></td>
+                                            <td><a href="<?= base_url().'crud_traslado/Editar/'.$traslado->id_traslado_activo?>">Editar</a></td>
+                                            <td><a href="<?= base_url().'crud_traslado/eliminar/'.$traslado->id_traslado_activo?>">Eliminar</a></td> 
                                             </tr>
-                                            <?php endforeach ;?>
-                                            <?php }; ?>
-                                    
+                                            <?php endforeach ;?>                                    
                                     </tbody>
                                 </table>
                             </div>

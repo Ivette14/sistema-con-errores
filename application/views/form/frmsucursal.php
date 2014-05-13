@@ -24,7 +24,7 @@
                                             <th>Nombre de la Sucursal</th>
                                             <th>Telefono</th>
                                             <th>Direccion</th>
-                                        
+                                            <th>Departamento</th>
                                             <th>Editar</th>
                                             <th>Eliminar</th>
                                         </tr>
@@ -36,7 +36,7 @@
                                             <td><?= $sucursal->nombre_sucursal?></td>   
                                             <td><?= $sucursal->telefono_sucursal?></td> 
                                             <td><?= $sucursal->direccion_sucursal?></td> 
-                                          
+                                            <td><?= $sucursal->departamento?></td>
                                             <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud/editar/'.$sucursal->id_sucursal; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Editar</button></td>
                                             <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud/eliminar/'.$sucursal->id_sucursal; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;Eliminar</button></td> 
                                             </tr>
