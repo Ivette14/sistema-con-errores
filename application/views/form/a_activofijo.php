@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-lg-6">
 
-            <form role="form">
+            <form role="form" method="POST">
 
               
 
@@ -23,13 +23,13 @@
 
                 <div class="form-group">
                   <label for="disabledSelect">Cuenta</label>
+                  
+               <select class="form-control" name='data' >
+  <?php foreach ($cat_cuentas_contables as $i => $nombre_cuenta)    
+  echo '<option values="',$i,'">',$nombre_cuenta,'</option>'; ?>
 
-                <select class="form-control" name="id_cuenta" value="<?= set_value('id_cuentacontable');?>">
-                <?php
-                  foreach ('cat_cuentas_contables' as $i => $id_cuentacontable)
-                  echo '<option values="',$i,'">',$id_cuentacontable,'</option>';
-                ?>
                 </select>
+
                  </div> 
 
               <div class="form-group">
@@ -46,8 +46,9 @@
 
               <div class="form-group">
                   <label for="disabledSelect">Proveedor</label>
-                  <select id="disabledSelect" class="form-control">
-                    <option>Seleccione un Proveedor</option>
+                  <select  class="form-control" name="data">  
+                  <?php foreach ($cat_proveedor as $i => $nombre_provee)    
+  echo '<option values="',$i,'">',$nombre_provee,'</option>'; ?>
                   </select>
               </div>
 
@@ -69,37 +70,45 @@
                 <textarea class="form-control" rows="3"></textarea>
               </div>
 
-              <div class="form-group">
-                <label>Estado del Activo</label>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                    Nuevo
-                  </label>
-                </div>
-               <div class="radio">
-                  <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                    Usado
-                  </label>
-                </div>               
-              </div>
+  <p>
+          <label>Estado del Activo</label>            
+          <input type = "radio"
+                 name = "radSize1"
+                 id = "sizeSmall"
+                 value = "small"
+                 checked = "checked" />
+          <label for = "sizeSmall">Nuevo</label>
+          
+          <input type = "radio"
+                 name = "radSize1"
+                 id = "sizeMed"
+                 value = "medium" />
+          <label for = "sizeMed">Usado</label>
+           </p>
+           <p></p> 
+           <p></p>  
+           <p>
+   <label>Valor del activo</label>  
+          <input type = "radio"
+                 name = "radSize2"
+                 id = "sizeLarge"
+                 value = "large" />
+          <label for = "sizeLarge">Real</label>
+           <input type = "radio"
+                 name = "radSize2"
+                 id = "sizeMed"
+                 value = "medium" />
+          <label for = "sizeMed">Estimado</label>
+          </p>
+         
 
-              <div class="form-group">
-                <label>Valor del Activo</label>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                    Real
-                  </label>
-                </div>
-               <div class="radio">
-                  <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                    Estimado
-                  </label>
-                </div>               
-              </div>
+
+
+
+
+
+
+
 
               <ol class="breadcrumb">
              
@@ -108,22 +117,25 @@
 
               <div class="form-group">
                   <label for="disabledSelect">Sucursal</label>
-                  <select id="disabledSelect" class="form-control">
-                    <option>Seleccione una Sucursal</option>
+                  <select name="data" class="form-control">
+                     <?php foreach ($cat_sucursal as $i => $nombre_sucursal)    
+  echo '<option values="',$i,'">',$nombre_sucursal,'</option>'; ?>
                   </select>
               </div>
 
               <div class="form-group">
                   <label for="disabledSelect">Area de Asignacion</label>
-                  <select id="disabledSelect" class="form-control">
-                    <option>Seleccione una Area</option>
+                  <select name="data" class="form-control">
+                    <?php foreach ($cat_area as $i => $nombre_area)    
+  echo '<option values="',$i,'">',$nombre_area,'</option>'; ?>
                   </select>
               </div>
 
               <div class="form-group">
                   <label for="disabledSelect">Empleado</label>
-                  <select id="disabledSelect" class="form-control">
-                    <option>Seleccione un Empleado</option>
+                  <select name="data" class="form-control">
+                    <?php foreach ($cat_empleado as $i => $nombre_empleado)    
+  echo '<option values="',$i,'">',$nombre_empleado,'</option>'; ?>
                   </select>
               </div>
 

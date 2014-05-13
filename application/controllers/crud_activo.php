@@ -15,26 +15,21 @@ parent::__construct();
     }
   
 public function index_nuevo()
-{
-        $cuenta    = $this->crud_model_activo->get_cuentas();
-        $proveedor = $this->crud_model_activo->get_proveedor();
-        $sucursal  = $this->crud_model_activo->get_sucursal();
-        $area      = $this->crud_model_activo->get_area();
-        $empleado  = $this->crud_model_activo->get_empleado();
-
- //creamos variables  para pasarle a la vista
-    $datac['cat_cuentas_contables'] = $cuenta;
-    $datap['cat_proveedor']         = $proveedor;
-    $datas['cat_sucursal']          = $sucursal;
-    $dataa['cat_area']              = $area;
-    $datae['cat_empleado']          = $empleado;
-
-      //cargamos nuestra vista
-        $this->load->view('header/header');
-        $this->load->view('form/a_activofijo',$datac, $datap, $datas, $dataa, $datae);
-        $this->load->view('footer');
+{       
+    $data['cat_proveedor'] = $this->crud_model_activo->get_proveedor();
+    $data['cat_cuentas_contables'] = $this->crud_model_activo->get_cuentas();
+    $data['cat_sucursal']= $this->crud_model_activo->get_sucursal();
+    $data['cat_area'] = $this->crud_model_activo->get_area();
+    $data['cat_empleado'] = $this->crud_model_activo->get_empleado();
     
+ //creamos variables  para pasarle a la vista
 
+     //cargamos nuestra vista
+       $contenido = $this->load->view('footer', $data, true);
+      
+$data2['contenido'] = $contenido;
+        $this->load->view('header/header',$data2);
+        $this->load->view('form/a_activofijo');
 }
 
     public function index()
