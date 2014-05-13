@@ -25,6 +25,7 @@
                   <label for="disabledSelect">Cuenta</label>
                   
                <select class="form-control" name='data' >
+                <option>  </option>
   <?php foreach ($cat_cuentas_contables as $i => $nombre_cuenta)    
   echo '<option values="',$i,'">',$nombre_cuenta,'</option>'; ?>
 
@@ -46,7 +47,8 @@
 
               <div class="form-group">
                   <label for="disabledSelect">Proveedor</label>
-                  <select  class="form-control" name="data">  
+                  <select  class="form-control" name="data"> 
+                  <option></option> 
                   <?php foreach ($cat_proveedor as $i => $nombre_provee)    
   echo '<option values="',$i,'">',$nombre_provee,'</option>'; ?>
                   </select>
@@ -118,6 +120,7 @@
               <div class="form-group">
                   <label for="disabledSelect">Sucursal</label>
                   <select name="data" class="form-control">
+                    <option> </option>
                      <?php foreach ($cat_sucursal as $i => $nombre_sucursal)    
   echo '<option values="',$i,'">',$nombre_sucursal,'</option>'; ?>
                   </select>
@@ -126,6 +129,7 @@
               <div class="form-group">
                   <label for="disabledSelect">Area de Asignacion</label>
                   <select name="data" class="form-control">
+                    <option>  </option>
                     <?php foreach ($cat_area as $i => $nombre_area)    
   echo '<option values="',$i,'">',$nombre_area,'</option>'; ?>
                   </select>
@@ -134,6 +138,7 @@
               <div class="form-group">
                   <label for="disabledSelect">Empleado</label>
                   <select name="data" class="form-control">
+                    <option> </option>
                     <?php foreach ($cat_empleado as $i => $nombre_empleado)    
   echo '<option values="',$i,'">',$nombre_empleado,'</option>'; ?>
                   </select>
