@@ -12,20 +12,22 @@
         return $sql->result();
     }
     //agregamos un empleado
-    public function agregar_area($nombre_area, $id_area)
+    public function agregar_area($id_area, $id_sucursal, $nombre_area)
     {
         $this->db->insert('cat_empleado',array(
-            'nombre_area'        => $nombre_area,
-            'id_area'            => $id_area
+            'id_area'            => $id_area,
+            'id_sucursal'        => $id_sucursal,
+            'nombre_area'        => $nombre_area
         ));
     }
     //actualizamos los datos de un empleado por id
-    public function actualizar_area($nombre_area, $id_area)
+    public function actualizar_area($id_area, $id_sucursal, $nombre_area)
     {
         $this->db->where('id_area', $id_area);
         $this->db->update('cat_area',array(
-            'nombre_area'        => $nombre_area,
-            'id_area'            => $id_area
+            'id_area'            => $id_area,
+            'id_sucursal'        => $id_sucursal,
+            'nombre_area'        => $nombre_area
         ));
     }
     //eliminamos un empleado por id
