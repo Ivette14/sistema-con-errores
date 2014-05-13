@@ -31,20 +31,20 @@
               <div class="form-group">
                   <label for="disabledSelect">Dapartamento</label>
                   <select id="disabledSelect" name="departamento" class="form-control" value="<?= set_value('departamento',$dato['departamento']);?>">>
-                  <option>Seleccione un Dapartamento</option>
-                  <option>San</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                  <option>13</option>
-                  <option>14</option>
+                 <option>Seleccione un Dapartamento</option>
+                  <option>Ahuchapan</option>
+                  <option>Santa Ana</option>
+                  <option>La Libertad</option>
+                  <option>Chalatenango</option>
+                  <option>Cuscatlan</option>
+                  <option>San Salvador</option>
+                  <option>La Paz</option>
+                  <option>Cabañas</option>
+                  <option>San Vicente</option>
+                  <option>Usulutan</option>
+                  <option>San Miguel</option>
+                  <option>Morazan</option>
+                  <option>La Union</option>
                 </select>
               </div>
  

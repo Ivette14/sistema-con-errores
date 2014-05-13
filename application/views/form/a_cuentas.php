@@ -27,7 +27,7 @@
 
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="button" onclick=location="<?php echo base_url().'direccion/hrefcuenta'; ?>" class="btn btn-primary">Cancelar</button>
+                <button type="button" onclick=location="<?php echo base_url().'direccion/hrefcuen'; ?>" class="btn btn-primary">Cancelar</button>
               </div>
                 
               </fieldset>

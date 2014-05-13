@@ -27,8 +27,8 @@ $this->load->view('form/empleados');
         
         // Cargar vista de formulario
      
-        $this->load->view('header');
-		$this->load->view('form/frmempleados');
+        $this->load->view('header/header');
+		$this->load->view('form/frmempleado');
 		$this->load->view('footer');
 		
     }

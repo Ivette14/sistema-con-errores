@@ -12,13 +12,13 @@
         return $sql->result();
     }
     //agregamos un usuario
-    public function agregar_cuenta($nombre_sucursal,$telefono_sucursal,$direccion_sucursal,$departamento)
+    public function agregar_cuenta($id_cuentacontable,$nombre_cuenta,$vida_util)
     {
-        $this->db->insert('cat_sucursal',array(
-            'nombre_sucursal'      => $nombre_sucursal,
-            'telefono_sucursal'    => $telefono_sucursal,
-            'direccion_sucursal'   => $direccion_sucursal,
-            'departamento'         => $departamento
+        $this->db->insert('cat_cuentas_contables',array(
+            'id_cuentacontable'      => $id_cuentacontable,
+            'nombre_cuenta'    => $nombre_cuenta,
+            'vida_util'   => $vida_util,
+            
         ));
     }
     //actualizamos los datos de un usuario por id
@@ -33,12 +33,12 @@
         ));
     }
     //eliminamos un usuario por id
-    public function eliminar_sucursal($id_cuentacontable)
+    public function eliminar_cuenta($id_cuentacontable)
     {
         $this->db->delete('cat_cuentas_contables', array('id_cuentacontable' => $id_cuentacontable));
     }
     //Obtenemos los datos de un usuario por id
-    public function get_cuetna($id_cuentacontable)
+    public function get_cuenta($id_cuentacontable)
     {
         $sql = $this->db->get_where('cat_cuentas_contables',array('id_cuentacontable'=>$id_cuentacontable));
         if($sql->num_rows()==1)

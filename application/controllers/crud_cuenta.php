@@ -29,14 +29,15 @@ parent::__construct();
 
     public function agregar()
     {
+         if($this->input->post('post') && $this->input->post('post')==1)
          //Si Existe Post y es igual a uno
                 $id_cuentacontable = $this->input->post('id_cuentacontable');  
                 $nombre_cuenta = $this->input->post('nombre_cuenta');
                 $vida_util = $this->input->post('vida_util');
-                $this->crud_model_cuenta->agregar_cuenta($nombre_sucursal,$telefono_sucursal,$direccion_sucursal,$departamento);               
+                $this->crud_model_cuenta->agregar_cuenta($id_cuentacontable,$nombre_cuenta,$vida_util);               
          //cargamos nuestra vista
         $this->load->view('header/header');
-        $this->load->view('form/a_sucursal');
+        $this->load->view('form/crud_cuentas');
         $this->load->view('footer');
     
 
@@ -65,14 +66,14 @@ parent::__construct();
     public function eliminar($id_sucursal=0)
     {
         //verificamos si existe el id
-        $respuesta = $this->crud_model->get_sucursal($id_sucursal);
+        $respuesta = $this->crud_model_cuenta->get_cuenta($id_cuentacontable);
         //si nos retorna FALSE mostramos la pag 404.
         if($respuesta==false)
         show_404();
         else
         {
             //si existe eliminamos el usuario
-            $this->crud_model->eliminar_sucursal($id_sucursal);
+            $this->crud_model_cuenta->eliminar_cuenta($id_cuentacontable);
             //redireccionamos al controlador CRUD
             redirect('crud'); 
         }
