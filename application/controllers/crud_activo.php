@@ -56,8 +56,8 @@ $data2['contenido'] = $contenido;
     }
 
     public function agregar()
-    {
-         
+    
+    {     
        if($this->input->post('post') && $this->input->post('post')==1)
         {
             $this->form_validation->set_rules('id_activofijo', 'id_activofijo',           'required|trim|xss_clean');
@@ -73,14 +73,16 @@ $data2['contenido'] = $contenido;
             $this->form_validation->set_rules('fecha_ingreso', 'fecha_ingreso',           'required|trim|xss_clean');
             $this->form_validation->set_rules('fecha_inicio_uso', 'fecha_inicio_uso',     'required|trim|xss_clean');
             $this->form_validation->set_rules('descripcion', 'descripcion',               'required|trim|xss_clean');
-            $this->form_validation->set_rules('importe_depreciable', 'importe_depreciable','required|trim|xss_clean');
-            $this->form_validation->set_rules('vida_util', 'vida_util',                    'required|trim|xss_clean');
+            $this->form_validation->set_rules('importe_depreciable', 'importe_depreciable','required|trim|xss_clean'); 
+ $this->form_validation->set_rules('vida_util', 'vida_util',                    'required|trim|xss_clean');
             $this->form_validation->set_rules('varlor_residual', 'varlor_residual',        'numeric|trim|xss_clean');
             $this->form_validation->set_rules('porcentaje_depreciacion', 'porcentaje_depreciacion','numeric|trim|xss_clean');
             $this->form_validation->set_rules('tipo_valor', 'tipo_valor',                            'required|trim|xss_clean');
             $this->form_validation->set_rules('cuota_anual', 'cuota_anual',                          'numeric|trim|xss_clean');
             $this->form_validation->set_rules('cuota_mensual', 'cuota_mensual',                      'numeric|trim|xss_clean');
              
+
+
             $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
             $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
             if ($this->form_validation->run() == TRUE)
@@ -114,12 +116,10 @@ $data2['contenido'] = $contenido;
 
                 redirect('Crud_activo');               
             }
-        }
-
-
-         
-    
-     
+            
+}
+ }       
+           
     public function editar($id_proveedor=0)
     {
         //verificamos si existe el id

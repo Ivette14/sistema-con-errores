@@ -12,36 +12,46 @@
         <div class="row">
           <div class="col-lg-6">
 
-            <form role="form" method="POST">
+            <form name="nombre_cuenta" id="mi_form" method="post" role="form" onchange='submit()'>
 
               
-
               <div class="form-group">
                 <label>Codigo de Activo</label>
-                <input class="form-control" placeholder="Enter text">
+                <input  class="form-control" name="id_activo_fijo"  placeholder="Enter text">
               </div>
 
                 <div class="form-group">
                   <label for="disabledSelect">Cuenta</label>
-                  
+    
                <select class="form-control" name='data' >
                 <option>  </option>
   <?php foreach ($cat_cuentas_contables as $i => $nombre_cuenta)    
-  echo '<option values="',$i,'">',$nombre_cuenta,'</option>'; ?>
+  echo "<option value='".$i['id_cuentacontable']."' ";
+  if($_POST['nombre_cuenta']==$i['id_cuentacontable'])
+  echo "SELECTED";
+   echo ">";
+    ECHO $id['nombre_cuenta']; 
+    ECHO '</option>'; ?>
 
                 </select>
 
-                 </div> 
+                 </div>
+     
+                    <div class="form-group">
+                <label>Vida Util</label>
+                <input class="form-control" >
+                
+              </div> 
 
               <div class="form-group">
                 <label>Nombre del Activo</label>
-                <input class="form-control">
+                <input class="form-control" name="nombre_activo">
                 
               </div>
 
               <div class="form-group">
                 <label>Valor Original</label>
-                <input class="form-control">
+                <input class="form-control" name="valor_original">
                 
               </div>
 
@@ -50,20 +60,32 @@
                   <select  class="form-control" name="data"> 
                   <option></option> 
                   <?php foreach ($cat_proveedor as $i => $nombre_provee)    
-  echo '<option values="',$i,'">',$nombre_provee,'</option>'; ?>
+  echo '<option values="',$i,'">',$nombre_provee,'</option>';
+
+   ?>
                   </select>
               </div>
+
+  <select  class="form-control" name="data"> 
+                  <option></option> 
+                  <?php foreach ($cat_proveedor as $i => $nombre_provee)    
+  echo '<option values="">',$nombre_provee,'</option>';
+
+   ?>
+                  </select>
+
+
 
 
               <div class="form-group">
                 <label>Fecha de Compra</label>
-                <input type="date" name="fecha">
+                <input type="date" name="fecha_compra">
                 
               </div>
 
               <div class="form-group">
                 <label>Fecha de Ingreso</label>
-                <input type="date" name="fecha">
+                <input type="date" name="fecha_ingreso">
                 
               </div>
 
@@ -102,16 +124,6 @@
                  value = "medium" />
           <label for = "sizeMed">Estimado</label>
           </p>
-         
-
-
-
-
-
-
-
-
-
               <ol class="breadcrumb">
              
               <li class="active"></i><h4>Asignacion del Activo</h4></li>
@@ -168,18 +180,6 @@
               </div>
 
               <div class="form-group">
-                <label>Vida Util</label>
-                <input class="form-control">
-                
-              </div>
-
-              <div class="form-group">
-                <label>Años de Uso</label>
-                <input class="form-control">
-                
-              </div>
-
-              <div class="form-group">
                 <label>Cuota Anual</label>
                 <input class="form-control">
                 
@@ -190,14 +190,14 @@
                 <input class="form-control">
                 
               </div>
-
-
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="submit" class="btn btn-primary">Calcular</button>
-                <button type="button" onclick=location="<?php echo base_url().'direccion/hrefaf'; ?>" class="btn btn-primary">Cancelar</button>
+               
+                 <button type="submit" class="btn btn-primary">Guardar</button>
+                  <button type="submit" class="btn btn-primary">Calcular</button>
+                <button type="button" onclick=location="<?php echo base_url().'crud_activo'; ?>" class="btn btn-primary">Cancelar</button>
 
               </fieldset>
 
             </form>
+                <?= validation_errors(); ?>
 
          
