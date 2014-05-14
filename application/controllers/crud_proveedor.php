@@ -59,16 +59,36 @@ parent::__construct();
      
     public function editar($id_proveedor=0)
     {
-        //verificamos si existe el id
+         //verificamos si existe el id
         $respuesta = $this->crud_model_proveedor->get_proveedor($id_proveedor);
         //si nos retorna FALSE le mostramos la pag 404
         if($respuesta==false)
         show_404();
         else
         {
-                        
-                
-            
+            //Si existe el post para editar
+            if($this->input->post('post') && $this->input->post('post')==1)
+            {
+            $this->form_validation->set_rules('nombre_provee', 'Nombre proveedor', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('direccion_provee', 'Direccion proveedor', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('telefono_provee', 'Telefono Poveedor', 'required|numeric|trim|xss_clean');
+            $this->form_validation->set_rules('email_provee', 'Email proveedor', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('nit', 'Nit Proveedor', 'required|numeric|trim|xss_clean');
+             
+            $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
+            $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
+                if ($this->form_validation->run() == TRUE)
+                {
+                $nombre_provee = $this->input->post('nombre_provee');
+                $direccion_provee= $this->input->post('direccion_provee');
+                $telefono_provee= $this->input->post('telefono_provee');
+                $email_provee= $this->input->post('email_provee');
+                $nit= $this->input->post('nit');
+                $this->crud_model_proveedor->actualizar_proveedor($id_proveedor,$nombre_provee,$direccion_provee,$telefono_provee,$email_provee,$nit);
+                    //redireccionamos al controlador CRUD
+                    redirect('crud_proveedor');               
+                }
+            }
             //devolvemos los datos del usuario
             $data['dato'] = $respuesta;
             //cargamos la vista
@@ -77,23 +97,7 @@ parent::__construct();
             $this->load->view('footer');
         }
     }
-    public function editar_proveedor()
-    {
-
-        $id_proveedor= $this->uri->segment(3);
-        $data = array( 
-            'id_proveedor' => $this->input->post('id_proveedor', TRUE),
-            'nombre_provee' => $this->input->post('nombre_provee', TRUE),
-            'direccion_provee' => $this->input->post('direccion_provee', TRUE),
-            'telefono_provee' => $this->input->post('telefono_provee', TRUE),
-            'email_provee' => $this->input->post('email_provee', TRUE),
-             'nit' => $this->input->post('nit', TRUE),
-
-        );
-
-        $this->crud_model_proveedor->actualizar_proveedor($id_proveedor, $data);
-        redirect('crud_proveedor');
-    }
+   
      
     public function eliminar($id_proveedor=0)
     {
