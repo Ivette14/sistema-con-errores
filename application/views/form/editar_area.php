@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-lg-6">
 
-            <form action="<?php echo base_url().'area/insertar_area'; ?>" method="post" role="form">
+            <form method="post" role="form">
               <div class="form-group">
                 <label>Nombre del Area</label>
                 <input name="nombre_area" class="form-control" value="<?= set_value('nombre_area');?>">

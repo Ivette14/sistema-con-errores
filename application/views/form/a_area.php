@@ -18,16 +18,13 @@
                 <input name="nombre_area" class="form-control" value="<?= set_value('nombre_area');?>">
               </div>
 
-               <div class="form-group">
-                <label>Sucursal</label>
-                <select class="form-control" name="id_sucursal" value="<?= set_value('id_sucursal');?>">
-                <?php
-                  foreach ($arrsucursales as $i => $id_sucursal)
-                  echo '<option values="',$i,'">',$id_sucursal,'</option>';
-                ?>
-                </select>
-              </div>
- 
+              <div class="form-group">
+                Sucursal<select class="form-control" name="i" value="<?= set_value('i');?>"> 
+                <?php foreach ($id_sucursal as $i => $sucursal)    
+                echo '<option values="',$i,'">',$sucursal,'</option>'; ?>
+              </select>
+
+              </div> 
 
               <div class="form-group">
                 <input type="hidden" name="post" value="1" />                

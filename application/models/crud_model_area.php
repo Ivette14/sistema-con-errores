@@ -12,20 +12,18 @@
         return $sql->result();
     }
     //agregamos un empleado
-    public function agregar_area($id_area, $id_sucursal, $nombre_area)
+    public function agregar_area($id_sucursal, $nombre_area)
     {
-        $this->db->insert('cat_empleado',array(
-            'id_area'            => $id_area,
+        $this->db->insert('cat_area',array(
             'id_sucursal'        => $id_sucursal,
             'nombre_area'        => $nombre_area
         ));
     }
     //actualizamos los datos de un empleado por id
-    public function actualizar_area($id_area, $id_sucursal, $nombre_area)
+    public function actualizar_area($id_sucursal, $nombre_area)
     {
         $this->db->where('id_area', $id_area);
         $this->db->update('cat_area',array(
-            'id_area'            => $id_area,
             'id_sucursal'        => $id_sucursal,
             'nombre_area'        => $nombre_area
         ));
@@ -45,22 +43,23 @@
         return false;
     }
 
-    function get_sucursales(){
-
-    // armamos la consulta
-    $query = $this->db-> query('SELECT id_sucursal,nombre_sucursal FROM cat_sucursal');
-
-    // si hay resultados
-    if ($query->num_rows() > 0) {
-        // almacenamos en una matriz bidimensional
-        foreach($query->result() as $row)
-           $arrDatos[htmlspecialchars($row->id_sucursal, ENT_QUOTES)] = 
-            htmlspecialchars($row->nombre_sucursal, ENT_QUOTES);
-
+    public function get_sucursales()
+    {
+        $sql = "SELECT id_sucursal, nombre_sucursal FROM cat_sucursal";
+        $query = $this->db->query($sql);
+        $data = array(); 
+        if ($query->num_rows() > 0) {
+        $data[""] = "Seleccione una Sucursal";
+        foreach ($query->result_array() as $row) {
+        $data[$row['id_sucursal']] = strtoupper($row['nombre_sucursal']); 
+    }
+        return $data;
+    }
+        return $data;
         $query->free_result();
-        return $arrDatos;
-     }
 }
 }
+
+
 
 ?>
