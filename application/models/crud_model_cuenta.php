@@ -22,14 +22,13 @@
         ));
     }
     //actualizamos los datos de un usuario por id
-    public function actualizar_cuenta($id_sucursal,$nombre_sucursal,$telefono_sucursal,$direccion_sucursal,$departamento)
+    public function actualizar_cuenta($id_cuentacontable,$nombre_cuenta,$vida_util)
     {
-        $this->db->where('id_sucursal', $id_sucursal);
-        $this->db->update('cat_sucursal',array(
-            'nombre_sucursal'=> $nombre_sucursal,
-            'telefono_sucursal' => $telefono_sucursal,
-            'direccion_sucursal' => $direccion_sucursal,
-            'departamento' => $departamento
+        $this->db->where('id_cuentacontable', $id_cuentacontable);
+        $this->db->update('cat_cuentas_contables',array(
+            'id_cuentacontable'=> $id_cuentacontable,
+            'nombre_cuenta' => $nombre_cuenta,
+            'vida_util' => $vida_util
         ));
     }
     //eliminamos un usuario por id

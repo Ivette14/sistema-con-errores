@@ -3,7 +3,7 @@
             <center><h1>Cuentas Contables<small></small></h1></center>
             <ol class="breadcrumb">
              
-              <li class="active"></i><h4> Agregar Nueva Cuenta Contable</h4></li>
+              <li class="active"></i><h4> Editar Cuenta Contable</h4></li>
             </ol>
             
           </div>
@@ -27,7 +27,7 @@
 
               <div class="form-group">
                 <input  type="hidden" name="post" value="1" />                
-                <button type="submit" value="Agregar" class="btn btn-primary">Guardar</button>
+                <button type="submit" value="Editar" class="btn btn-primary">Guardar</button>
                 <button type="button" onclick=location="<?php echo base_url().'crud_cuenta'; ?>" class="btn btn-primary">Cancelar</button>
               </div>   
                 
@@ -40,4 +40,4 @@
         </div><!-- /.row -->
 
       </div><!-- /#page-wrapper -->
-       <?= validation_errors(); ?>
+      
