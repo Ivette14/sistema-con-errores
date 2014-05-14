@@ -104,7 +104,7 @@ parent::__construct();
         show_404();
         else
         {     //si existe eliminamos el usuario
-            $this->crud_model_proveedor->eliminar_provedor($id_proveedor);
+            $this->crud_model_proveedor->eliminar_proveedor($id_proveedor);
             //redireccionamos al controlador CRUD
             redirect('crud_proveedor'); 
         }

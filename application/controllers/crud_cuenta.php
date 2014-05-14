@@ -55,7 +55,7 @@ parent::__construct();
     public function editar($id_cuentacontable=0)
     {
         //verificamos si existe el id
-        $respuesta = $this->crud_model_cuenta->get_cuentas($id_cuentacontable);
+        $respuesta = $this->crud_model_cuenta->get_cuenta($id_cuentacontable);
         //si nos retorna FALSE le mostramos la pag 404
         if($respuesta==false)
         show_404();
@@ -88,7 +88,7 @@ parent::__construct();
         }
     }
      
-    public function eliminar($id_sucursal=0)
+    public function eliminar($id_cuentacontable=0)
     {
         //verificamos si existe el id
         $respuesta = $this->crud_model_cuenta->get_cuentas($id_cuentacontable);
