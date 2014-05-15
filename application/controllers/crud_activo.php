@@ -22,6 +22,7 @@ public function index_nuevo()
     $data['cat_area'] = $this->crud_model_activo->get_area();
     $data['cat_empleado'] = $this->crud_model_activo->get_empleado();
     
+
  //creamos variables  para pasarle a la vista
 
      //cargamos nuestra vista
@@ -31,6 +32,23 @@ $data2['contenido'] = $contenido;
         $this->load->view('header/header',$data2);
         $this->load->view('form/a_activofijo');
 }
+
+   
+    public function llena_vida_cuenta()
+    {
+        $options = "";
+        if($this->input->post('nombre_cuenta'))
+        {
+            $nombre_cuenta = $this->input->post('nombre_cuenta');
+            $vida_util = $this->crud_model_activo->vida_cuenta($nombre_cuenta);
+            foreach($vida_util as $fila)
+            {
+            ?>
+                <option value="<?=$fila-> cat_cuentas_contables?>"><?=$fila-> vida_util ?></option>                       
+            <?php
+            }
+        }
+    }
 
     public function index()
     {
@@ -46,6 +64,32 @@ $data2['contenido'] = $contenido;
         $this->load->view('footer');
     
     }
+
+public function depreciacion(){
+
+
+    if($_POST['importe_depreciable'] !=0)
+    {   
+
+        echo "Falta importe_depreciable";
+         }
+
+        else {
+        $importe_depreciable = $_POST
+        ['importe_depreciable'];
+        $residual = $_POST
+        ['residual'];
+             $vida_util = $_POST
+        ['vida_util'];
+        $depreciacion_anual = $importe_depreciable - $varlor_residual / $vida_util;
+        echo "La depreciacion anual es de ".$depreciacion_anual; 
+   
+    }
+
+
+}
+
+
     public function nuevo()
     {
 

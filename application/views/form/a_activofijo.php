@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-lg-6">
 
-            <form name="nombre_cuenta" id="mi_form" method="post" role="form" onchange='submit()'>
+            <form name="nombre_cuenta" id="mi_form" method="post" role="form" on>
 
               
               <div class="form-group">
@@ -20,29 +20,24 @@
                 <input  class="form-control" name="id_activo_fijo"  placeholder="Enter text">
               </div>
 
-                <div class="form-group">
                   <label for="disabledSelect">Cuenta</label>
     
-               <select class="form-control" name='data' >
-                <option>  </option>
-  <?php foreach ($cat_cuentas_contables as $i => $nombre_cuenta)    
-  echo "<option value='".$i['id_cuentacontable']."' ";
-  if($_POST['nombre_cuenta']==$i['id_cuentacontable'])
-  echo "SELECTED";
-   echo ">";
-    ECHO $id['nombre_cuenta']; 
-    ECHO '</option>'; ?>
+          <select  class="form-control" name="data"> 
+                  <option></option> 
+                  <?php foreach ($cat_cuentas_contables as $i => $nombre_cuenta)    
+  echo '<option values="',$i,'">',$nombre_cuenta,'</option>';
 
-                </select>
-
-                 </div>
+   ?>
+                  </select>
+         
      
                     <div class="form-group">
                 <label>Vida Util</label>
-                <input class="form-control" >
-                
-              </div> 
 
+               <input class="form-control" name="vida_util">
+              
+              </div> 
+ 
               <div class="form-group">
                 <label>Nombre del Activo</label>
                 <input class="form-control" name="nombre_activo">
@@ -65,19 +60,7 @@
    ?>
                   </select>
               </div>
-
-  <select  class="form-control" name="data"> 
-                  <option></option> 
-                  <?php foreach ($cat_proveedor as $i => $nombre_provee)    
-  echo '<option values="">',$nombre_provee,'</option>';
-
-   ?>
-                  </select>
-
-
-
-
-              <div class="form-group">
+            <div class="form-group">
                 <label>Fecha de Compra</label>
                 <input type="date" name="fecha_compra">
                 
@@ -169,13 +152,13 @@
 
               <div class="form-group">
                 <label>Importe de Depreciacion</label>
-                <input class="form-control">
+                <input class="form-control" name="importe_depreciable">
                 
               </div>
 
               <div class="form-group">
                 <label>Valor Residual</label>
-                <input class="form-control">
+                <input class="form-control" name="valor_residual" onBlur="crud_activo/depreciacion()" >
                 
               </div>
 

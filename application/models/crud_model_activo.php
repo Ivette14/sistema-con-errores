@@ -13,8 +13,8 @@
     }
      //vamos a cargar todos los datos para Combobox
     public function get_cuentas()
-{
-        // armamos la consulta
+{   
+         // armamos la consulta
     $query = $this->db-> query('SELECT id_cuentacontable,nombre_cuenta FROM cat_cuentas_contables');
 
     // si hay resultados
@@ -27,8 +27,29 @@
         $query->free_result();
         return $arrDatos;
      }
-    
-    
+
+    }
+
+     public function llena_vida_cuenta($nombre_cuenta)
+    {
+        $this->db->where('id_cuentacontable',$nombre_cuenta);
+        $this->db->order_by('vida_util','asc');
+        $vida_util = $this->db->get('cat_cuentas_contables');
+        if($vida_util->num_rows()>0)
+        {
+            return $vida_util->result();
+        }
+    }
+
+    public function vida_cuenta($nombre_cuenta)
+    {
+        $this->db->where('id_cuentacontable',$nombre_cuenta);
+        $this->db->order_by('cat_cuentas_contables','asc');
+        $vida_util = $this->db->get('cat_cuentas_contables');
+        if($vida_util->num_rows()>0)
+        {
+            return $vida_util->result();
+        }
     } 
     public function get_proveedor()
 {
