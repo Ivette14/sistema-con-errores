@@ -13,10 +13,7 @@
           <div class="col-lg-6">
 
             <form action="<?php echo base_url().'crud_proveedor/agregar'; ?>" id="mi_form" method="post" role="form">
-              <div class="form-group">
-                <label>Codigo Proveedor</label>
-                <input name="id_proveedor" class="form-control">
-              </div>
+              
               <div class="form-group">
                 <label>Nombre del Proveedor</label>
                 <input name="nombre_provee" class="form-control">

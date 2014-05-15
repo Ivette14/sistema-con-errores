@@ -18,34 +18,35 @@ parent::__construct();
     {
         //obtenemos todos los empleado
         $areas = $this->crud_model_area->get_areas();
-        $datos['arrsucursales'] = $this->crud_model_area->get_sucursales();
+        $datos['id_sucursal'] = $this->crud_model_area->get_sucursales();
         //creamos una variable empleados para pasarle a la vista
         $data['areas'] = $areas;
         //cargamos nuestra vista
         $this->load->view('header/header');
-        $this->load->view('form/frmarea',$data);
+        $this->load->view('form/frmarea', $data, $datos);
         $this->load->view('footer');
     
     }
 
     public function agregar()
     {
-        $datos['arrsucursales'] = $this->crud_model_area->get_sucursales();
+        $datos['nombre_sucursal'] = $this->crud_model_area->get_sucursales();
          //Si Existe Post y es igual a uno
         if($this->input->post('post') && $this->input->post('post')==1)
         {
-            $this->form_validation->set_rules('nombre_area', 'Nombre de area', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('id_area', 'sucursal', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('nombre_sucursal', 'Sucursal', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('nombre_area', 'Nombre de Area', 'required|trim|xss_clean');
          
              
             $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
             $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
             if ($this->form_validation->run() == TRUE)
-            {
-                $nombre_area        = $this->input->post('nombre_area');
-                $id_sucursal    = $this->input->post('id_sucursal');
+            {    
+                $nombre_sucursal  = $this->input->post('nombre_sucursal');            
+                $id_sucursal    = $this->input->post('id_sucursal');                
+                $nombre_area    = $this->input->post('nombre_area');
 
-                $this->crud_model_area->agregar_area( $nombre_area, $id_area);
+                $this->crud_model_area->agregar_area($nombre_sucursal, $id_sucursal, $nombre_area);
 
                 redirect('crud_area');               
             }
@@ -62,8 +63,8 @@ parent::__construct();
     public function editar($id_area=0)
     {
         //verificamos si existe el id
-        $respuesta = $this->crud_model_empleado->get_empleado($id_empleado);
-        $datos['arrsucursales'] = $this->crud_model_empleado->get_sucursales();
+        $respuesta = $this->crud_model_area->get_area($id_area);
+        $datos['arrsucursales'] = $this->crud_model_area->get_area();
         //si nos retorna FALSE le mostramos la pag 404
         if($respuesta==false)
         show_404();

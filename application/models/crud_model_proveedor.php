@@ -18,9 +18,17 @@
 
     }
     //actualizamos los datos de un usuario por id
-    public function actualizar_proveedor($id_proveedor, $data){
+    public function actualizar_proveedor($id_proveedor,$nombre_provee,$direccion_provee,$telefono_provee,$email_provee, $data)
+    {
         $this->db->where('id_proveedor', $id_proveedor);
-        $this->db->update('cat_proveedor', $data);
+        $this->db->update('cat_proveedor',array(
+            'id_proveedor'=> $id_proveedor,
+            'nombre_provee' => $nombre_provee,
+            'direccion_provee' => $direccion_provee,
+            'telefono_provee' => $telefono_provee,
+            'email_provee' => $email_provee,
+            'nit' => $nit,
+        ));
     }
     //eliminamos un usuario por id
     public function eliminar_proveedor($id_proveedor)

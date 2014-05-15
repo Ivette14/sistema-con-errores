@@ -99,13 +99,13 @@
                         <li><a href="<?php echo base_url().'direccion/hrefini'; ?>"><i class="fa fa-dashboard fa-fw"></i> Inicio</a></li>
                         <li><a href="<?php echo base_url().'crud_activo'; ?>"><i class="fa fa-edit fa-fw"></i> Activo Fijo</a></li>
                         <li><a href="<?php echo base_url().'crud_baja'; ?>"><i class="fa fa-edit fa-fw"></i> Baja de Activo</a></li>
-                        <li><a href="<?php echo base_url().'direccion/hrefemplea'; ?>"><i class="fa fa-edit fa-fw"></i> Empleados</a></li>
+                        <li><a href="<?php echo base_url().'crud_empleado'; ?>"><i class="fa fa-edit fa-fw"></i> Empleados</a></li>
                         <li><a href="<?php echo base_url().'crud_proveedor'; ?>"><i class="fa fa-edit fa-fw"></i> Proveedores</a></li>
-                        <li><a href="<?php echo base_url().'direccion/hrefdepre'; ?>"><i class="fa fa-edit fa-fw"></i> Depreciacion</a></li>
+                        <li><a href="<?php echo base_url().'crud_deprecia'; ?>"><i class="fa fa-edit fa-fw"></i> Depreciacion</a></li>
                         <li><a href="<?php echo base_url().'crud_cuenta'; ?>"><i class="fa fa-edit fa-fw"></i> Cuentas</a></li>
                         <li><a href="<?php echo base_url().'crud/index'; ?>"><i class="fa fa-edit fa-fw"></i> Sucursales</a></li>
-                        <li><a href="<?php echo base_url().'direccion/hrefarea'; ?>"><i class="fa fa-edit fa-fw"></i> Areas</a></li>
-                        <li><a href="<?php echo base_url().'direccion/hreftrasla'; ?>"><i class="fa fa-edit fa-fw"></i> Traslado de Activo</a></li>
+                        <li><a href="<?php echo base_url().'crud_area'; ?>"><i class="fa fa-edit fa-fw"></i> Areas</a></li>
+                        <li><a href="<?php echo base_url().'crud_traslado'; ?>"><i class="fa fa-edit fa-fw"></i> Traslado de Activo</a></li>
                         <li><a href="<?php echo base_url().'usuarios'; ?>"><i class="fa fa-edit fa-fw"></i> Usuario</a></li>
                         <li><a href="#"><i class="fa fa-wrench fa-fw"></i> Setting</a></li>
 

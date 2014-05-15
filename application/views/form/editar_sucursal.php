@@ -1,6 +1,6 @@
 <div class="row">
-          <div class="col-lg-12">
-            <center><h1>Sucursales</h1></center>
+  <div class="col-lg-12">
+    <center><h1>Sucursales</h1></center>
             <ol class="breadcrumb">
              
               <li class="active"></i><h4> Editar Sucursal</h4></li>
@@ -31,7 +31,7 @@
               <div class="form-group">
                   <label for="disabledSelect">Dapartamento</label>
                   <select id="disabledSelect" name="departamento" class="form-control" value="<?= set_value('departamento',$dato['departamento']);?>">>
-                 <option>Seleccione un Dapartamento</option>
+                  <option>Seleccione un Dapartamento</option>
                   <option>Ahuchapan</option>
                   <option>Santa Ana</option>
                   <option>La Libertad</option>
