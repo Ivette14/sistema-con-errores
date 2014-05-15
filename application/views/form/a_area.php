@@ -19,9 +19,9 @@
               </div>
 
               <div class="form-group">
-                Sucursal<select class="form-control" name="i" value="<?= set_value('i');?>"> 
-                <?php foreach ($id_sucursal as $i => $sucursal)    
-                echo '<option values="',$i,'">',$sucursal,'</option>'; ?>
+                Sucursal<select class="form-control" name="nombre_sucursal" value="<?= set_value('nombre_sucursal');?>"> 
+                <?php foreach ($nombre_sucursal as $i => $sucursal)    
+                echo '<option values="',$i,'">',$sucursal,'</option>';?>
               </select>
 
               </div> 
