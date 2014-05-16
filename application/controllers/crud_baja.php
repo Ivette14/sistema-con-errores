@@ -26,24 +26,24 @@ parent::__construct();
         $this->load->view('footer');
     
     }
-     
+   
+/*
+
     public function baja_activo($id_activofijo=0)
     {
 
-$data = array( 
+ $data = array( 
             'id_activofijo' => $this->input->post('id_activofijo', TRUE),
             'fecha_baja' => $this->input->post('fecha_baja', TRUE),
              'motivo_baja' => $this->input->post('motivo_baja', TRUE),
-            'num_autorizacion' => $this->input->post('num_autorizacion', TRUE),
-
+            
         );
         
         $this->crud_model_baja->baja_activo($data);
-        redirect('Crud_baja');
+        redirect('crud_baja');
     }
-
-
-
+*/
     
 }
+
 ?>

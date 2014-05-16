@@ -22,11 +22,9 @@
                                         <tr>
                                             <th>Codigo de activo fijo</th>
                                             <th>Descripcion</th>
-                                            <th>fecha De Baaja </th>
-                                            <th>motivo de Baja</th>
-                                            <th>Numero de Autorizacion</th>
-                                            <th></th>
-                                            
+                                            <th>Motivo de Baja</th>
+                                            <th>Accion</th>
+                                                                                        
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -35,10 +33,8 @@
                                              
                                             <td><?= $activo->id_activofijo?></td>   
                                             <td><?= $activo->descripcion?></td>
-                                            <td> <input type="date" name="fecha_baja"></td> 
                                            <td><input name="motivo_baja" class="form-control"></td> 
-                                            <td><input name="num_autorizacion" class="form-control"></td> 
-                                             <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud_baja/baja_activo/'.$activo->id_activofijo; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;Dar De Baja</button></td>
+                                           <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud_baja/baja_activo/'.$activo->id_activofijo; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;Dar De Baja</button></td>
                                            
                                             </tr>
                                           <?php endforeach ;?>
