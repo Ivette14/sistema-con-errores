@@ -16,40 +16,14 @@ parent::__construct();
   
 public function index_nuevo()
 {       
-    $data['cat_proveedor'] = $this->crud_model_activo->get_proveedor();
-    $data['cat_sucursal']= $this->crud_model_activo->get_sucursal();
-    $data['cat_area'] = $this->crud_model_activo->get_area();
-    $data['cat_empleado'] = $this->crud_model_activo->get_empleado();
-    
 
- //creamos variables  para pasarle a la vista
-
-     //cargamos nuestra vista
-       $contenido = $this->load->view('footer', $data, true);
-      
-$data2['contenido'] = $contenido;
-        $this->load->view('header/header',$data2);
+        $this->load->view('header/header');
         $this->load->view('form/a_activofijo');
+        $this->load->view('footer');;
         
 }
 
-   
-    public function llena_vida_cuenta()
-    {
-        $options = "";
-        if($this->input->post('nombre_cuenta'))
-        {
-            $nombre_cuenta = $this->input->post('nombre_cuenta');
-            $vida_util = $this->crud_model_activo->vida_cuenta($nombre_cuenta);
-            foreach($vida_util as $fila)
-            {
-            ?>
-                <option value="<?=$fila-> cat_cuentas_contables?>"><?=$fila-> vida_util ?></option>                       
-            <?php
-            }
-        }
-    }
-
+  
     public function index()
     {
         //obtenemos todos los activos
@@ -65,29 +39,6 @@ $data2['contenido'] = $contenido;
     
     }
 
-public function depreciacion(){
-
-
-    if($_POST['importe_depreciable'] !=0)
-    {   
-
-        echo "Falta importe_depreciable";
-         }
-
-        else {
-        $importe_depreciable = $_POST
-        ['importe_depreciable'];
-        $residual = $_POST
-        ['residual'];
-             $vida_util = $_POST
-        ['vida_util'];
-        $depreciacion_anual = $importe_depreciable - $varlor_residual / $vida_util;
-        echo "La depreciacion anual es de ".$depreciacion_anual; 
-   
-    }
-
-
-}
 
 
     public function nuevo()
@@ -100,9 +51,11 @@ public function depreciacion(){
     }
 
     public function agregar()
-    
-    {     
-       if($this->input->post('post') && $this->input->post('post')==1)
+ 
+    { 
+
+
+ if($this->input->post('post') && $this->input->post('post')==1)
         {
             $this->form_validation->set_rules('id_activofijo', 'id_activofijo',           'required|trim|xss_clean');
             $this->form_validation->set_rules('id_cuentacontable', 'id_cuentacontable',   'required|numeric|trim|xss_clean');
@@ -118,9 +71,9 @@ public function depreciacion(){
             $this->form_validation->set_rules('fecha_inicio_uso', 'fecha_inicio_uso',     'required|trim|xss_clean');
             $this->form_validation->set_rules('descripcion', 'descripcion',               'required|trim|xss_clean');
             $this->form_validation->set_rules('importe_depreciable', 'importe_depreciable','required|trim|xss_clean'); 
- $this->form_validation->set_rules('vida_util', 'vida_util',                    'required|trim|xss_clean');
+            $this->form_validation->set_rules('vida_util', 'vida_util',                    'required|trim|xss_clean');
             $this->form_validation->set_rules('varlor_residual', 'varlor_residual',        'numeric|trim|xss_clean');
-            $this->form_validation->set_rules('porcentaje_depreciacion', 'porcentaje_depreciacion','numeric|trim|xss_clean');
+         
             $this->form_validation->set_rules('tipo_valor', 'tipo_valor',                            'required|trim|xss_clean');
             $this->form_validation->set_rules('cuota_anual', 'cuota_anual',                          'numeric|trim|xss_clean');
             $this->form_validation->set_rules('cuota_mensual', 'cuota_mensual',                      'numeric|trim|xss_clean');
@@ -131,6 +84,9 @@ public function depreciacion(){
             $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
             if ($this->form_validation->run() == TRUE)
             {
+
+
+
                 $id_activofijo = $this->input->post('id_activofijo');
                 $id_cuentacontable = $this->input->post('id_cuentacontable');
                 $id_area = $this->input->post('id_area');
@@ -146,8 +102,8 @@ public function depreciacion(){
                 $descripcion = $this->input->post('descripcion');
                 $importe_depreciable = $this->input->post('importe_depreciable');
                 $vida_util = $this->input->post('vida_util');
-                $varlor_residual = $this->input->post('varlor_residual');
-                $porcentaje_depreciacion = $this->input->post('porcentaje_depreciacion');
+                $valor_residual = $this->input->post('valor_residual');
+            
                 $tipo_valor = $this->input->post('tipo_valor');
                 $cuota_anual = $this->input->post('cuota_anual');
                 $cuota_mensual = $this->input->post('cuota_mensual');
@@ -155,14 +111,20 @@ public function depreciacion(){
                 $this->crud_model_activo->agregar_activo($id_activofijo,$id_cuentacontable, 
                     $id_area, $id_sucursal, $id_empleado, $id_proveedor,$nombre_activo_fijo,$valor_orginal,$estado,
                     $fecha_compra, $fecha_ingreso, $fecha_inicio_uso, $descripcion,$importe_depreciable, $vida_util,
-                    $varlor_residual, $porcentaje_depreciacion,$tipo_valor,$cuota_anual,$cuota_mensual);
+                    $valor_residual, $tipo_valor,$cuota_anual,$cuota_mensual);
 
 
                 redirect('Crud_activo');               
-            }
             
-}
- }       
+            
+            }
+        }
+        $this->load->view('header/header');
+        $this->load->view('form/a_activofijo');
+        $this->load->view('footer');;
+    }
+
+          
            
     public function editar($id_proveedor=0)
     {
