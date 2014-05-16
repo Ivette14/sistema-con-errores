@@ -17,7 +17,6 @@ parent::__construct();
 public function index_nuevo()
 {       
     $data['cat_proveedor'] = $this->crud_model_activo->get_proveedor();
-    $data['cat_cuentas_contables'] = $this->crud_model_activo->get_cuentas();
     $data['cat_sucursal']= $this->crud_model_activo->get_sucursal();
     $data['cat_area'] = $this->crud_model_activo->get_area();
     $data['cat_empleado'] = $this->crud_model_activo->get_empleado();
@@ -31,6 +30,7 @@ public function index_nuevo()
 $data2['contenido'] = $contenido;
         $this->load->view('header/header',$data2);
         $this->load->view('form/a_activofijo');
+        
 }
 
    

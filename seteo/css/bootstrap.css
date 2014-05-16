@@ -44,10 +44,16 @@ template {
 }
 a {
   background: transparent;
+
 }
 a:active,
 a:hover {
-  outline: 0;
+
+  color: #fff; 
+  background-color: #666;
+   border-right-width: 5px; 
+   border-right-style: solid; 
+   border-right-color: #36F;
 }
 abbr[title] {
   border-bottom: 1px dotted;
@@ -288,13 +294,24 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #428bca;
-  text-decoration: none;
+font-family: arial, helvetica, sans-serif; 
+color: red;
+ text-decoration: none; 
+ font-size: 0.9em; 
+ display: block; 
+ padding: 6px;
+  border-bottom-width: 1px; 
+  border-bottom-style: solid; 
+  border-bottom-color: #CCC; 
+  background-color: #EAEAEA;
 }
 a:hover,
 a:focus {
-  color: #2a6496;
-  text-decoration: underline;
+  color: #fff;
+   background-color: #666; 
+   border-right-width: 5px; 
+   border-right-style: solid; 
+   border-right-color: #36F;
 }
 a:focus {
   outline: thin dotted;

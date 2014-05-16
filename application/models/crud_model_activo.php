@@ -21,8 +21,8 @@
     if ($query->num_rows() > 0) {
         // almacenamos en una matriz bidimensional
         foreach($query->result() as $row)
-           $arrDatos[htmlspecialchars($row->id_cuentacontable,  ENT_QUOTES)] = 
-            htmlspecialchars($row->nombre_cuenta, ENT_QUOTES);
+           $arrDatos[htmlspecialchars($row->id_cuentacontable,  ENT_QUOTES)] = htmlspecialchars($row->nombre_cuenta, ENT_QUOTES);
+            
 
         $query->free_result();
         return $arrDatos;
@@ -44,7 +44,7 @@
     public function vida_cuenta($nombre_cuenta)
     {
         $this->db->where('id_cuentacontable',$nombre_cuenta);
-        $this->db->order_by('cat_cuentas_contables','asc');
+        $this->db->order_by('vida_util');
         $vida_util = $this->db->get('cat_cuentas_contables');
         if($vida_util->num_rows()>0)
         {
