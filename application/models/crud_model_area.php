@@ -12,12 +12,12 @@
         return $sql->result();
     }
     //agregamos un empleado
-    public function agregar_area($nombre_sucursal, $id_sucursal, $nombre_area)
-    {
+    public function agregar_area($nombre_area, $id_sucursal)
+    {   
         $this->db->insert('cat_area',array(
-            'nombre_sucursal'    => $nombre_sucursal,
-            'id_sucursal'        => $id_sucursal,
-            'nombre_area'        => $nombre_area
+            'nombre_area'        => $nombre_area,             
+            'id_sucursal'        => $id_sucursal
+            
         ));
     }
     //actualizamos los datos de un empleado por id
@@ -52,7 +52,7 @@
     // almacenamos en una matriz bidimensional 
         foreach($query->result() as $row) 
         $arrDatos[htmlspecialchars($row->id_sucursal, ENT_QUOTES)] = 
-        htmlspecialchars($row->nombre_sucursal, ENT_QUOTES); 
+        htmlspecialchars($row->id_sucursal, ENT_QUOTES); 
         $query->free_result(); 
 
         return $arrDatos; } 

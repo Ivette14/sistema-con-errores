@@ -30,23 +30,22 @@ parent::__construct();
 
     public function agregar()
     {
-        $datos['nombre_sucursal'] = $this->crud_model_area->get_sucursales();
+        $datos['id_sucursales'] = $this->crud_model_area->get_sucursales();
          //Si Existe Post y es igual a uno
         if($this->input->post('post') && $this->input->post('post')==1)
         {
-            $this->form_validation->set_rules('nombre_sucursal', 'Sucursal', 'required|trim|xss_clean');
             $this->form_validation->set_rules('nombre_area', 'Nombre de Area', 'required|trim|xss_clean');
-         
+            $this->form_validation->set_rules('id_sucursal', 'Sucursal', 'required|trim|xss_clean');
+                     
              
             $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
             $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
             if ($this->form_validation->run() == TRUE)
-            {    
-                $nombre_sucursal  = $this->input->post('nombre_sucursal');            
-                $id_sucursal    = $this->input->post('id_sucursal');                
+            {                
                 $nombre_area    = $this->input->post('nombre_area');
+                $id_sucursal    = $this->input->post('id_sucursal');               
 
-                $this->crud_model_area->agregar_area($nombre_sucursal, $id_sucursal, $nombre_area);
+                $this->crud_model_area->agregar_area($nombre_area, $id_sucursal);
 
                 redirect('crud_area');               
             }
@@ -84,7 +83,7 @@ parent::__construct();
                 $nombre_area        = $this->input->post('nombre_area');
                 $id_sucursal        = $this->input->post('id_sucursal');
 
-                $this->crud_model_area->agregar_area( $nombre_area, $id_area);
+                $this->crud_model_area->agregar_area($nombre_sucursal, $nombre_area, $id_area);
 
                 redirect('crud_area');               
             }
