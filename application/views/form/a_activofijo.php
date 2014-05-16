@@ -21,13 +21,7 @@ mysql_select_db("sys_activofijo");
             <form name="fvalida" id="fvalida" method="post" role="form">
 
               
-              <div class="form-group">
-                <label>Codigo de Activo</label>
-                <input  class="form-control" name="id_activo_fijo"  placeholder="Enter text">
-              </div>
-
-
-
+            
                   <label for="disabledSelect">Cuenta</label>
     
           <select  class="form-control" name="nombre_cuenta" onChange="submit()"> 
@@ -35,6 +29,8 @@ mysql_select_db("sys_activofijo");
                   <?php
                   $sql="SELECT * FROM cat_cuentas_contables";
                   $rec=mysql_query($sql);
+                
+                  $id_activo_fijo = $_POST['id_activo_fijo'];
   
            
                    while ($row=mysql_fetch_array($rec))
@@ -48,15 +44,28 @@ mysql_select_db("sys_activofijo");
                   echo "</option>";
                 
                 } 
+                  
                    ?>   
 
                   </select>
-          <div class="form-group">
+
+
+<div class="form-group">
                 <label>Vida Util</label>
                 <input type="text" name="vida_util" id="vida_util" value="<?php echo $_POST['nombre_cuenta']; ?>" readonly>
                 
               </div>
 
+ <div class="form-group">
+                <label>Codigo de Activo</label>
+                
+                <input type="text" value=""  class="form-control" name="id_activo_fijo"   placeholder="Enter text">
+              </div>
+
+
+
+
+          
      
  
               <div class="form-group">
