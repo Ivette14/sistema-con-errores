@@ -22,25 +22,28 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Nombre del Activo</th>
-                                            <th> Valor Original</th>
+                                            <th>Codigo</th>
+                                            <th> Nombre de activo</th>
+                                            <th> Descripcion </th>
                                           
-                                            <th>Editar</th>
-                                            <th>Eliminar</th>
+                                    <!--        <th>Editar</th>
+                                            <th>Eliminar</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
 
 
                                         
-                                            <?php foreach ($llll as $activo):?>
+                                            <?php foreach ($activo as $activo):?>
                                             <tr>
-                                            <td><?= $activo->id_activofijo?></td>   
+                                            <td><?= $activo->id_activofijo?></td> 
+                                            <td><?= $activo->nombre_activo_fijo?></td>   
                                             <td><?= $activo->descripcion?></td> 
                                          
-                                              <input  type="hidden" name="post" value="1" /> 
+                                     <!--         <input  type="hidden" name="post" value="1" /> 
                                             <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud_activo/editar/'.$activo->id_activofijo; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Editar</button></td>
                                             <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud_activo/eliminar/'.$activo->id_activofijo; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;Eliminar</button></td> 
+                                            -->
                                             </tr>
                                             <?php endforeach ;?>
                                            

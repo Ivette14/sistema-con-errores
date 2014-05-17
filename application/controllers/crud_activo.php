@@ -31,7 +31,7 @@ public function index_nuevo()
                         //obtenemos todos los usuarios
         $activos= $this->crud_model_activo->get_activos();
         //creamos una variable usuarios para pasarle a la vista
-        $data['cat_activo_fijo'] =   $activos;
+        $data['activo'] =   $activos;
         //creamos una variable usuarios para pasarle a la vista
 
         //cargamos nuestra vista
