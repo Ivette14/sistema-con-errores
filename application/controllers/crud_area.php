@@ -17,13 +17,12 @@ parent::__construct();
     public function index()
     {
         //obtenemos todos los empleado
-        $areas = $this->crud_model_area->get_areas();
-        $datas['sucursal'] = $this->crud_model_area->sucur();       
+        $areas = $this->crud_model_area->tabla();            
         //creamos una variable empleados para pasarle a la vista
         $data['areas'] = $areas;
         //cargamos nuestra vista
         $this->load->view('header/header');
-        $this->load->view('form/frmarea', $data, $datas);
+        $this->load->view('form/frmarea', $data);
         $this->load->view('footer');
     
     }
