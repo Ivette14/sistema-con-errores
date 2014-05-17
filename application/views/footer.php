@@ -10,6 +10,7 @@
                 <!-- /#page-wrapper -->
             </div>
             <!-- /#wrapper -->
+            
 
     <!-- Core Scripts - Include with every page -->
     <script src="<?php echo base_url().'seteo/js/jquery-1.10.2.js'; ?>"></script>
@@ -80,13 +81,9 @@
                 } 
             } 
         </script> 
- 
-        <script src="js/jquery-1.11.0.min.js"></script> 
-        <script src="js/bootstrap.min.js"></script> 
-        <!-- JQUERY UI --> 
-        <script src="js/jquery-ui-1.10.4.custom.js"></script> 
-        <script src="js/jquery-ui-1.10.4.custom.min.js"></script> 
 
+ 
+   
 </body>
 
 </html>

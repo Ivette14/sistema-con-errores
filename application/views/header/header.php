@@ -19,21 +19,7 @@
     <base href="<?php echo base_url();  ?>">
 
     <title>Sistema de Activo Fijo</title>
-     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#nombre_cuenta").change(function() {
-                $("#nombre_cuenta option:selected").each(function() {
-                    nombre_cuenta = $('#nombre_cuenta').val();
-                    $.post("http://localhost/sistema/crud_activo/llena_vida_cuenta", {
-                        nombre_cuenta : nombre_cuenta
-                    }, function(data) {
-                        $("#vida_util").html(data);
-                    });
-                });
-            })
-        });
-    </script>
+     
 
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo base_url().'seteo/css/bootstrap.min.css'; ?>" rel="stylesheet">

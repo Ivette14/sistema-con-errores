@@ -1,4 +1,19 @@
+<script src="js/jquery-1.11.0.min.js"></script> 
+        <script src="js/bootstrap.min.js"></script> 
+        <!-- JQUERY UI --> 
+        <script src="js/jquery-ui-1.10.4.custom.js"></script> 
+        <script src="js/jquery-ui-1.10.4.custom.min.js"></script> 
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 <div class="container-fluid"> 
+
  
 	<button type="button" onclick="prepara_form( 'Nuevo', 0 )" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i>&nbsp;Agregar usuario</button> 
  
