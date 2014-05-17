@@ -20,7 +20,7 @@ mysql_select_db("sys_activofijo");
         <div class="row">
           <div class="col-lg-6">
 
-            <form  name="fvalida" id="fvalida" method="post" role="form"  >
+            <form  name="fvalida" id="fvalida" method="post" role="form" border="0.5" >
 
               <div class="form-group">
             

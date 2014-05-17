@@ -60,7 +60,7 @@
     <div id="wrapper">
 
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
-            <img src="<?php echo base_url().'seteo/logos/logo7.png'; ?>" height="75px" width="75px">
+            <img src="<?php echo base_url().'seteo/logos/banner.png'; ?>" height="75px" >
 
            
 

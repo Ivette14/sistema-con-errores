@@ -3,7 +3,7 @@
             <br><br>
             <ol class="breadcrumb">
              
-              <center><li  class="active"></i><h4> Bienvenido al Sistema de Control de Activo Fijo</h4></li></center>
+              <li  class="active"></i><h4> Bienvenid@ </h4></li>
             
           </div>
         </div><!-- /.row -->
