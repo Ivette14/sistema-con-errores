@@ -44,18 +44,14 @@
         return false;
     }
 
-    function get_sucursales()
-    { // armamos la consulta 
-    $query = $this->db-> query('SELECT id_sucursal,nombre_sucursal FROM cat_sucursal'); 
-    // si hay resultados 
-    if ($query->num_rows() > 0) { 
-    // almacenamos en una matriz bidimensional 
-        foreach($query->result() as $row) 
-        $arrDatos[htmlspecialchars($row->id_sucursal, ENT_QUOTES)] = 
-        htmlspecialchars($row->id_sucursal, ENT_QUOTES); 
-        $query->free_result(); 
-
-        return $arrDatos; } 
+    public function sucur()
+    {
+        $this->db->order_by('nombre_sucursal','asc');
+        $sucursal = $this->db->get('cat_sucursal');
+        if($sucursal->num_rows()>0)
+        {
+            return $sucursal->result();
+        }
     }
 
 
