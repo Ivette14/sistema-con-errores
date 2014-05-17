@@ -1,6 +1,6 @@
           <div class="row">
           <div class="col-lg-12">
-            <center><h1> Areas</h1></center>
+           <br><br>
             <ol class="breadcrumb">
              
               <li class="active"></i><h4> Editar Area</h4></li>

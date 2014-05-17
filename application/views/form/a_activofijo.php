@@ -6,19 +6,14 @@ mysql_select_db("sys_activofijo");
 
         <div class="row">
           <div class="col-lg-12">
-<<<<<<< HEAD
-
-            <h1>Activo Fijo <small>Tarjeta De Apertura</small> </h1><center><img src="<?php echo base_url().'seteo/logos/im/prestar.jpg'; ?>"></center>
            <br><br>
-            </i>
-=======
-            <h1>Activo Fijo <small>Tarjeta De Apertura</small></h1>
+
+            
             <ol class="breadcrumb">
              
-              <li class="active"><h4> Activo Fijo</h4></li>
+              <li class="active"><h4> Agregar Activo Fijo</h4></li>
             </ol>
             
->>>>>>> e2dbd9935b80ce028f9ac9f4a14a1a9a851176f1
           </div>
         </div><!-- /.row -->
 
@@ -118,13 +113,15 @@ mysql_select_db("sys_activofijo");
           <label>Estado del Activo</label>            
           <input type = "radio"
                  name = "estado"
-                 value="<?= set_value('nuevo');?>"
-                  />
+                 id = "estado"
+                 value="<?= set_value('estado');?>"
+                 checked = "checked" />
           <label for = "sizeSmall">Nuevo</label>
           
           <input type = "radio"
                  name = "estado"
-                 value="<?= set_value('usado');?>"
+                 id = "estado"
+                 value="<?= set_value('estado');?>"
                 />
           <label for = "sizeMed">Usado</label>
            </p>
@@ -133,14 +130,16 @@ mysql_select_db("sys_activofijo");
            <p>
    <label>Valor del activo</label>  
           <input type = "radio"
-                 name = "tipo_valor"
-                 
-                 value="<?= set_value('Real');?>"
+                 name = "valor_original"
+                 id = "valor_riginal"
+                 checked = "checked"
+                 value="<?= set_value('valor_original');?>"
                  />
           <label for = "sizeLarge">Real</label>
            <input type = "radio"
-                 name = "tipo_valor"
-                 value="<?= set_value('estimado');?>"
+                 name = "valor_original"
+                 id = "valor_original" 
+                 value="<?= set_value('valor_original');?>"
                   />
           <label for = "sizeMed">Estimado</label>
           </p>

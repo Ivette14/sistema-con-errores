@@ -1,16 +1,16 @@
         <div class="row">
           <div class="col-lg-12">
-            <center><h1> Empleados</h1></center>
-            <ol class="breadcrumb">
+            <br><br>
+             <ol class="breadcrumb">
              
-              <li class="active"></i><center><h4> Edicion de Empleados</h4></center></li>
+              <li class="active"></i><center><h4> Gestor de Empleados/Responsables de AF</h4></center></li>
             </ol>
             
           </div>
         </div><!-- /.row -->
 
             <!-- /.row -->
-        <div class="form-group"> <button type="button" onclick=location="<?php echo base_url().'crud_empleado/agregar'; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Nuevo</button></div>       
+        <div class="form-group"> <button type="button" onclick=location="<?php echo base_url().'crud_empleado/agregar'; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Agregar</button></div>       
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">

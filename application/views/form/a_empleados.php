@@ -3,10 +3,10 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <center><h1>Empleados<small></small></h1></center>
+            
             <ol class="breadcrumb">
              
-              <li class="active"></i><h4> Agregar Empleados</h4></li>
+              <li class="active"></i><h4> Agregar Empleadosksskaskj</h4></li>
             </ol>
              
           </div>

@@ -1,6 +1,6 @@
 <div class="row">
           <div class="col-lg-12">
-            <center><h1>Empleados<small></small></h1></center>
+            <br><br>
             <ol class="breadcrumb">
              
               <li class="active"></i><h4> Editar Empleados</h4></li>
@@ -22,7 +22,7 @@
                   echo '<option values="',$i,'">',$sucursal,'</option>';
                 ?>
                 </select>
-              </div> <br>
+              </div>
 
               <div class="form-group">
                 <label>Nombre del empleado</label>

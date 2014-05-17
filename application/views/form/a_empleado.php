@@ -1,6 +1,6 @@
 <div class="row">
           <div class="col-lg-12">
-            <center><h1>Empleados<small></small></h1></center>
+<br><br>
             <ol class="breadcrumb">
              
               <li class="active"></i><h4> Agregar Empleados</h4></li>
@@ -16,7 +16,7 @@
                 <div class="form-group">
                 <label>Sucursal</label>
                 <select class="form-control" name="id_sucursal" value="<?= set_value('id_sucursal');?>">
-                <?php
+            br    <?php
                   foreach ($arrsucursales as $i => $id_sucursal)
                   echo '<option values="',$i,'">',$id_sucursal,'</option>';
                 ?>

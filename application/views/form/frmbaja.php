@@ -1,9 +1,9 @@
         <div class="row">
           <div class="col-lg-12">
-            <center><h1>Baja de Activo Fijo</h1></center>
+            <br><br>
             <ol class="breadcrumb">
              
-              <li class="active"></i><center><h4> </h4></center></li>
+              <li class="active"></i><center><h4>Baja de un Activo Fijo</h4></center></li>
             </ol>
             
           </div>

@@ -1,9 +1,9 @@
           <div class="row">
           <div class="col-lg-12">
-            <center><h1>Proveedor</h1></center>
+            <br><br>
             <ol class="breadcrumb">
              
-              <li class="active"></i><h4> EDITAR PROVEEDOR</h4></li>
+              <li class="active"></i><h4> Editar Proveedor</h4></li>
             </ol>
             
           </div>

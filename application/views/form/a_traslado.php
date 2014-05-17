@@ -1,9 +1,9 @@
  <div class="row">
   <div class="col-lg-12">
-      <center><h1>Traslados de Activo Fijo</h1></center>
+     <br><br>
             <ol class="breadcrumb">
              
-              <li class="active"></i><h4> Agregar Traslado</h4></li>
+              <li class="active"></i><h4> Traslado de Activo Fijo</h4></li>
             </ol>
             
           </div>

@@ -1,9 +1,9 @@
         <div class="row">
           <div class="col-lg-12">
-            <center><h1> Cuentas Contables</h1></center>
+            <br><br>
             <ol class="breadcrumb">
              
-              <li class="active"></i><center><h4> Edicion de Cuentas Contables</h4></center></li>
+              <li class="active"></i><center><h4> Gestor de Cuentas Contables</h4></center></li>
             </ol>
             
           </div>
