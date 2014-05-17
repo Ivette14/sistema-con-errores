@@ -22,7 +22,7 @@
                   echo '<option values="',$i,'">',$sucursal,'</option>';
                 ?>
                 </select>
-              </div>
+              </div> <br>
 
               <div class="form-group">
                 <label>Nombre del empleado</label>

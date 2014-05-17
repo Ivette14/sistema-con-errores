@@ -6,12 +6,10 @@ mysql_select_db("sys_activofijo");
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Activo Fijo <small>Tarjeta De Apertura</small></h1>
-            <ol class="breadcrumb">
-             
-              <li class="active"></i><h4> Activo Fijo</h4></li>
-            </ol>
-            
+
+            <h1>Activo Fijo <small>Tarjeta De Apertura</small> </h1><center><img src="<?php echo base_url().'seteo/logos/im/prestar.jpg'; ?>"></center>
+           <br><br>
+            </i>
           </div>
         </div><!-- /.row -->
 
