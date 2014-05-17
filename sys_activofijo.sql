@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-05-2014 a las 09:54:42
+-- Tiempo de generación: 17-05-2014 a las 09:55:10
 -- Versión del servidor: 5.5.8
 -- Versión de PHP: 5.3.5
 
@@ -43,7 +43,6 @@ CREATE TABLE IF NOT EXISTS `cat_activo_fijo` (
   `importe_depreciable` float NOT NULL,
   `vida_util` int(2) NOT NULL,
   `valor_residual` float NOT NULL,
-  `porcentaje_depreciacion` float NOT NULL,
   `cuota_anual` float NOT NULL,
   `cuota_mensual` float NOT NULL,
   `activado` varchar(2) COLLATE latin1_general_ci NOT NULL,
@@ -59,6 +58,19 @@ CREATE TABLE IF NOT EXISTS `cat_activo_fijo` (
 -- Volcar la base de datos para la tabla `cat_activo_fijo`
 --
 
+INSERT INTO `cat_activo_fijo` (`id_activofijo`, `id_cuentacontable`, `id_area`, `id_sucursal`, `id_empleado`, `id_proveedor`, `nombre_activo_fijo`, `descripcion`, `valor_original`, `tipo_valor`, `estado`, `fecha_compra`, `fecha_ingreso`, `fecha_inicio_uso`, `importe_depreciable`, `vida_util`, `valor_residual`, `cuota_anual`, `cuota_mensual`, `activado`) VALUES
+('ME01', 3, 2, 2, 'E01', 2, 'Computadora', 'computadora de escritorio Dell', 300, 'estimado', 'nuevo', '2010-05-12', '2014-05-16 18:26:34', '2010-06-01', 500, 2, 100, 200, 16.667, '1'),
+('M01', 1, 2, 6, 'E02', 2, 'computadora', 'computadora portátil\r\n', 500, 'real', 'nuevo', '0000-00-00', '0000-00-00 00:00:00', '2012-08-06', 700, 5, 200, 100, 8.33, '1'),
+('TR01', 4, 7, 7, 'E04', 4, 'camion de carga', 'trasporte para traslado de activos\r\n', 30000, 'real', 'usado', '2011-06-12', '2014-05-16 21:45:48', '2011-07-12', 50000, 5, 1000, 9800, 816.66, '1'),
+('TE01', 4, 1, 6, 'E08', 1, 'Edificio', 'edificación de la empresa', 50000, 'real', 'usado', '2014-05-15', '2014-05-16 21:52:08', '2014-05-29', 70000, 10, 20000, 5000, 41.66, '1'),
+('ME02', 3, 6, 5, 'E03', 5, 'Escritorio', 'escritorio para la oficina', 150, 'estimado', 'nuevo', '2014-05-14', '2014-05-16 21:55:07', '2014-05-21', 250, 2, 100, 75, 6.25, '1'),
+('ME3', 3, 7, 7, 'E16', 4, 'silla', 'silla giratoria para la oficina\r\n', 75, 'estimado', 'nuevo', '2014-04-17', '2014-05-16 21:56:40', '2014-05-22', 100, 5, 50, 10, 0.83, '1'),
+('ME04', 3, 5, 5, 'E18', 2, 'aireacondicionado', 'aireacondicionado para la oficina\r\n', 600, 'estimado', 'nuevo', '2014-05-15', '2014-05-16 23:23:36', '2014-05-22', 800, 3, 200, 66.66, 5.55, '1'),
+('ME5', 3, 4, 3, 'E19', 4, 'modulares', 'muebles de oficina\r\n', 1500, 'estimado', 'nuevo', '2014-05-15', '2014-05-16 23:38:18', '2014-05-22', 20000, 4, 18500, 2642.85, 220.24, '1'),
+('TE02', 4, 2, 2, 'E06', 4, 'Edificio', 'edificaciones de la empresa\r\n', 100000, 'estimado', 'usado', '2014-05-08', '2014-05-22 23:52:29', '2014-05-29', 100500, 5, 500, 100, 8.33, '1'),
+('TE03', 4, 3, 3, 'E07', 5, 'Edificio', 'edificaciones de la empresa', 60000, 'real', 'usado', '2014-05-23', '2014-05-24 23:59:52', '2014-05-23', 80000, 6, 20000, 3333.33, 277.78, '1'),
+('TE04', 4, 3, 4, 'E11', 4, 'Edificio', 'edificaciones de la empresa', 75000, 'real', 'usado', '2014-05-23', '2014-05-23 00:06:53', '2014-05-31', 90000, 6, 15000, 2500, 208.33, '1'),
+('TE05', 4, 5, 5, 'E13', 1, 'Edificio', 'edificaciones de la empresa', 40000, 'estimado', 'usado', '2014-05-30', '2014-06-10 00:13:46', '2014-06-18', 60000, 5, 20000, 4000, 333.33, '1');
 
 -- --------------------------------------------------------
 
@@ -118,15 +130,17 @@ CREATE TABLE IF NOT EXISTS `cat_cuentas_contables` (
   `nombre_cuenta` varchar(45) COLLATE latin1_general_ci NOT NULL,
   `vida_util` int(2) NOT NULL,
   PRIMARY KEY (`id_cuentacontable`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=6 ;
 
 --
 -- Volcar la base de datos para la tabla `cat_cuentas_contables`
 --
 
 INSERT INTO `cat_cuentas_contables` (`id_cuentacontable`, `nombre_cuenta`, `vida_util`) VALUES
-(1, 'Maquinaria', 2),
-(2, 'Inmuebles', 5);
+(1, 'Maquinaria', 10),
+(3, 'Mobiliario y Equipo', 10),
+(4, 'Terrenos Y Edificios', 20),
+(5, 'Transporte', 5);
 
 -- --------------------------------------------------------
 
