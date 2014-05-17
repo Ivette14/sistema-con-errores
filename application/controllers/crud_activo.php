@@ -64,7 +64,7 @@ public function index_nuevo()
             $this->form_validation->set_rules('id_empleado', 'id_empleado',               'required|trim|xss_clean');
             $this->form_validation->set_rules('id_proveedor', 'id_proveedor',             'required|trim|xss_clean');
             $this->form_validation->set_rules('nombre_activo_fijo', 'nombre_activo_fijo', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('valor_orginal', 'valor_orginal',           'numeric|trim|xss_clean');
+            $this->form_validation->set_rules('valor_original', 'valor_original',           'numeric|trim|xss_clean');
             $this->form_validation->set_rules('estado', 'estado',                         'required|trim|xss_clean');
             $this->form_validation->set_rules('fecha_compra', 'fecha_compra',             'required|trim|xss_clean');
             $this->form_validation->set_rules('fecha_ingreso', 'fecha_ingreso',           'required|trim|xss_clean');
@@ -73,7 +73,6 @@ public function index_nuevo()
             $this->form_validation->set_rules('importe_depreciable', 'importe_depreciable','required|trim|xss_clean'); 
             $this->form_validation->set_rules('vida_util', 'vida_util',                    'required|trim|xss_clean');
             $this->form_validation->set_rules('varlor_residual', 'varlor_residual',        'numeric|trim|xss_clean');
-         
             $this->form_validation->set_rules('tipo_valor', 'tipo_valor',                            'required|trim|xss_clean');
             $this->form_validation->set_rules('cuota_anual', 'cuota_anual',                          'numeric|trim|xss_clean');
             $this->form_validation->set_rules('cuota_mensual', 'cuota_mensual',                      'numeric|trim|xss_clean');
@@ -94,7 +93,7 @@ public function index_nuevo()
                 $id_empleado = $this->input->post('id_empleado');
                 $id_proveedor= $this->input->post('id_proveedor');
                 $nombre_activo_fijo = $this->input->post('nombre_activo_fijo');
-                $valor_orginal = $this->input->post('valor_orginal');
+                $valor_original = $this->input->post('valor_original');
                 $estado = $this->input->post('estado');
                 $fecha_compra = $this->input->post('fecha_compra');
                 $fecha_ingreso = $this->input->post('fecha_ingreso');
@@ -109,7 +108,7 @@ public function index_nuevo()
                 $cuota_mensual = $this->input->post('cuota_mensual');
                
                 $this->crud_model_activo->agregar_activo($id_activofijo,$id_cuentacontable, 
-                    $id_area, $id_sucursal, $id_empleado, $id_proveedor,$nombre_activo_fijo,$valor_orginal,$estado,
+                    $id_area, $id_sucursal, $id_empleado, $id_proveedor,$nombre_activo_fijo,$valor_original,$estado,
                     $fecha_compra, $fecha_ingreso, $fecha_inicio_uso, $descripcion,$importe_depreciable, $vida_util,
                     $valor_residual, $tipo_valor,$cuota_anual,$cuota_mensual);
 

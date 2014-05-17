@@ -112,14 +112,14 @@ mysql_select_db("sys_activofijo");
           <input type = "radio"
                  name = "estado"
                  id = "estado"
-                 value="<?= set_value('estado');?>"
+                 value="<?= set_value('nuevo');?>"
                  checked = "checked" />
           <label for = "sizeSmall">Nuevo</label>
           
           <input type = "radio"
                  name = "estado"
                  id = "estado"
-                 value="<?= set_value('estado');?>"
+                 value="<?= set_value('usado');?>"
                 />
           <label for = "sizeMed">Usado</label>
            </p>
@@ -128,16 +128,16 @@ mysql_select_db("sys_activofijo");
            <p>
    <label>Valor del activo</label>  
           <input type = "radio"
-                 name = "valor_original"
-                 id = "valor_riginal"
+                 name = "tipo_valor"
+                 id = "tipo_valor"
                  checked = "checked"
-                 value="<?= set_value('valor_original');?>"
+                 value="<?= set_value('Real');?>"
                  />
           <label for = "sizeLarge">Real</label>
            <input type = "radio"
-                 name = "valor_original"
-                 id = "valor_original" 
-                 value="<?= set_value('valor_original');?>"
+                 name = "tipo_valor"
+                 id = "tipo_valor" 
+                 value="<?= set_value('estimado');?>"
                   />
           <label for = "sizeMed">Estimado</label>
           </p>
