@@ -19,11 +19,16 @@
               </div>
 
               <div class="form-group">
-                Sucursal<select class="form-control" name="id_sucursal" value="<?= set_value('id_sucursal');?>"> 
-                <?php foreach ($id_sucursales as $id_sucursal => $sucursal)    
-                echo '<option values="',$id_sucursal,'">',$sucursal,'</option>';?>
+                <select name="id_sucursal" class="form-control" id="id_sucursal">
+          <?php 
+              foreach($sucursal as $fila)
+              {
+          ?>
+            <option value="<?=$fila -> id_sucursal ?>"><?=$fila -> nombre_sucursal ?></option>
+          <?php
+              }
+          ?>        
               </select>
-
               </div> 
 
               <div class="form-group">

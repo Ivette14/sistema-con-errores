@@ -18,20 +18,21 @@ parent::__construct();
     {
         //obtenemos todos los empleado
         $areas = $this->crud_model_area->get_areas();
-        $datos['id_sucursal'] = $this->crud_model_area->get_sucursales();
+        $datas['sucursal'] = $this->crud_model_area->sucur();       
         //creamos una variable empleados para pasarle a la vista
         $data['areas'] = $areas;
         //cargamos nuestra vista
         $this->load->view('header/header');
-        $this->load->view('form/frmarea', $data, $datos);
+        $this->load->view('form/frmarea', $data, $datas);
         $this->load->view('footer');
     
     }
 
     public function agregar()
     {
-        $datos['id_sucursales'] = $this->crud_model_area->get_sucursales();
-         //Si Existe Post y es igual a uno
+        $datas['sucursal'] = $this->crud_model_area->sucur();
+        
+                 //Si Existe Post y es igual a uno
         if($this->input->post('post') && $this->input->post('post')==1)
         {
             $this->form_validation->set_rules('nombre_area', 'Nombre de Area', 'required|trim|xss_clean');
@@ -53,7 +54,7 @@ parent::__construct();
 
          //cargamos nuestra vista
         $this->load->view('header/header');
-        $this->load->view('form/a_area',$datos);
+        $this->load->view('form/a_area',$datas);
         $this->load->view('footer');
     
 
