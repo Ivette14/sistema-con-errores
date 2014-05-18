@@ -54,6 +54,14 @@
         }
     }
 
+    public function tabla()
+    {        
+       $query = $this->db->query('SELECT "cat_sucursal.nombre_sucursal", "cat_area.nombre_area"  
+                                    FROM cat_area 
+                                    INNER JOIN cat_sucursal ON "cat_sucursal.id_sucursal" = "cat_area.id_sucursal"');
+       return $query->result();    
+    }
+
 
 }
 

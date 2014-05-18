@@ -27,11 +27,13 @@ public function index_nuevo()
     public function index()
     {
         //obtenemos todos los activos
-        $activo    = $this->crud_model_activo->get_activos();
-
-        
+                
+                        //obtenemos todos los usuarios
+        $activos= $this->crud_model_activo->get_activos();
         //creamos una variable usuarios para pasarle a la vista
-        $data['cat_activo_fijo'] = $activo;
+        $data['activo'] =   $activos;
+        //creamos una variable usuarios para pasarle a la vista
+
         //cargamos nuestra vista
         $this->load->view('header/header');
         $this->load->view('form/frmactivofijo',$data);
@@ -88,6 +90,7 @@ public function index_nuevo()
 
                 $id_activofijo = $this->input->post('id_activofijo');
                 $id_cuentacontable = $this->input->post('id_cuentacontable');
+                //$id_cuentacontable = $this->input->post('id_cuentacontable');
                 $id_area = $this->input->post('id_area');
                 $id_sucursal = $this->input->post('id_sucursal');
                 $id_empleado = $this->input->post('id_empleado');
@@ -106,11 +109,11 @@ public function index_nuevo()
                 $tipo_valor = $this->input->post('tipo_valor');
                 $cuota_anual = $this->input->post('cuota_anual');
                 $cuota_mensual = $this->input->post('cuota_mensual');
-               
+                $activado = 1;
                 $this->crud_model_activo->agregar_activo($id_activofijo,$id_cuentacontable, 
                     $id_area, $id_sucursal, $id_empleado, $id_proveedor,$nombre_activo_fijo,$valor_original,$estado,
                     $fecha_compra, $fecha_ingreso, $fecha_inicio_uso, $descripcion,$importe_depreciable, $vida_util,
-                    $valor_residual, $tipo_valor,$cuota_anual,$cuota_mensual);
+                    $valor_residual, $tipo_valor,$cuota_anual,$cuota_mensual, $activado);
 
 
                 redirect('Crud_activo');               
