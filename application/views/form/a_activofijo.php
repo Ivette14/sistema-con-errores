@@ -6,10 +6,10 @@ mysql_select_db("sys_activofijo");
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Activo Fijo <small>Tarjeta De Apertura</small></h1>
+          <br><br>
             <ol class="breadcrumb">
              
-              <li class="active"><h4> Activo Fijo</h4></li>
+              <li class="active"><h4> Tarjeta de apertura de Activo</h4></li>
             </ol>
             
           </div>
@@ -49,7 +49,7 @@ mysql_select_db("sys_activofijo");
 </div>
 <div class="form-group">
                 <label>Vida Util</label>
-                <input type="text" name="vida_util" readonly id="vida_util"  value=" <?php echo $_POST['id_cuentacontable']; ?>" >
+                <input type="text" name="vida_util" readonly id="vida_util"  value= <?php echo $_POST['id_cuentacontable']; ?>
                 
               </div>
 
@@ -87,7 +87,7 @@ mysql_select_db("sys_activofijo");
                    ?>   
 
                   </select>
-                   <input  type="hidden" name="id_proveedor" readonly id="id_proveedor"  value=" <?php echo $_POST['nombre_provee']; ?>" >
+                   <input  type="hidden" name="id_proveedor" readonly id="id_proveedor"  value=<?php echo $_POST['nombre_provee']; ?>
               </div>
 
             <div class="form-group">
@@ -156,7 +156,7 @@ mysql_select_db("sys_activofijo");
 
                   </select>
 
-                   <input  type="hidden" name="id_sucursal" readonly id="id_sucursal"  value=" <?php echo $_POST['nombre_sucursal']; ?>" >
+                   <input  type="hidden" name="id_sucursal" readonly id="id_sucursal"  value= <?php echo $_POST['nombre_sucursal']; ?>>
               </div>
 
               <div class="form-group">
@@ -180,7 +180,7 @@ mysql_select_db("sys_activofijo");
                    ?>   
 
                   </select>
-                    <input  type="hidden" name="id_area" readonly id="id_area"  value=" <?php echo $_POST['nombre_area']; ?>" >
+                    <input  type="hidden" name="id_area" readonly id="id_area"  value= <?php echo $_POST['nombre_area']; ?>>
               </div>
 
               <div class="form-group">
@@ -204,7 +204,7 @@ mysql_select_db("sys_activofijo");
                    ?>   
 
                   </select>
-                    <input  type="hidden" name="id_empleado" readonly id="id_empleado"  value=" <?php echo $_POST['nombre_empleado']; ?>" >
+                    <input  type="hidden" name="id_empleado" readonly id="id_empleado"  value= <?php echo $_POST['nombre_empleado']; ?>>
               </div>
 
               <ol class="breadcrumb">
