@@ -83,7 +83,7 @@
                         <li><a href="<?php echo base_url().'crud_baja'; ?>"><i class="fa fa-edit fa-fw"></i> Baja de Activo</a></li>
                         <li><a href="<?php echo base_url().'crud_empleado'; ?>"><i class="fa fa-edit fa-fw"></i> Empleados</a></li>
                         <li><a href="<?php echo base_url().'crud_proveedor'; ?>"><i class="fa fa-edit fa-fw"></i> Proveedores</a></li>
-                        <li><a href="<?php echo base_url().'crud_deprecia'; ?>"><i class="fa fa-edit fa-fw"></i> Depreciacion</a></li>
+                        <li><a href="<?php echo base_url().'crud_depreciacion'; ?>"><i class="fa fa-edit fa-fw"></i> Depreciacion</a></li>
                         <li><a href="<?php echo base_url().'crud_cuenta'; ?>"><i class="fa fa-edit fa-fw"></i> Cuentas</a></li>
                         <li><a href="<?php echo base_url().'crud/index'; ?>"><i class="fa fa-edit fa-fw"></i> Sucursales</a></li>
                         <li><a href="<?php echo base_url().'crud_area'; ?>"><i class="fa fa-edit fa-fw"></i> Areas</a></li>

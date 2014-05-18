@@ -10,7 +10,7 @@
         </div><!-- /.row -->
 
             <!-- /.row -->
-        <div class="form-group"> <button type="button" onclick=location="<?php echo base_url().'crud_proveedor/nuevo'; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Nuevo</button></div>       
+        <div class="form-group"> <button type="button" onclick=location="<?php echo base_url().'crud_proveedor/nuevo'; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Agregar</button></div>       
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
