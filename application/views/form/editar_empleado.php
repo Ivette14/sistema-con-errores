@@ -14,7 +14,7 @@
 
               <div class="form-group">
                 <label>Codigo de empleado</label>
-                <input name="id_empleado" class="form-control" value="<?= set_value('id_empleado',$dato['id_empleado']);?>">
+                <input name="codigo_empleado" class="form-control" value="<?= set_value('codigo_empleado',$dato['codigo_empleado']);?>">
               </div>
 
               <label>Sucursal en la que operara</label>

@@ -35,7 +35,7 @@
                                             <?php foreach ($empleados as $empleado):?>
                                             <tr>
                                             <td><?= $empleado->nombre_sucursal?></td> 
-                                            <td><?= $empleado->id_empleado?></td>                                     
+                                            <td><?= $empleado->codigo_empleado?></td>                                     
                                             <td><?= $empleado->nombre_empleado?></td> 
                                             <td><?= $empleado->direccion_empleado?></td> 
                                             <td><?= $empleado->telefono_empleado?></td>

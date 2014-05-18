@@ -13210,7 +13210,7 @@
 			 *      return d.replace(/\n/g," ").replace( /<.*?>/g, "" );
 			 *    }
 			 */
-			search: {},
+			Buscar: {},
 	
 	
 			/**
