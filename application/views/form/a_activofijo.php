@@ -6,10 +6,12 @@ mysql_select_db("sys_activofijo");
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Activo Fijo <small>Tarjeta De Apertura</small></h1>
+           <br><br>
+
+            
             <ol class="breadcrumb">
              
-              <li class="active"><h4> Activo Fijo</h4></li>
+              <li class="active"><h4> Agregar Activo Fijo</h4></li>
             </ol>
             
           </div>
@@ -24,7 +26,7 @@ mysql_select_db("sys_activofijo");
             
                   <label for="disabledSelect">Cuenta</label>
     
-          <select value="<?= set_value('id_cuentacontable');?>" class="form-control" name="id_cuentacontable" id="id_cuentacontable" onChange="submit()"> 
+          <select value="<?= set_value('id_cuentacontable');?>" class="form-control" name="nombre_cuenta" onChange="submit()"> 
   
                   <?php
                   $sql="SELECT * FROM cat_cuentas_contables";
@@ -33,7 +35,7 @@ mysql_select_db("sys_activofijo");
                    while ($row=mysql_fetch_array($rec))
                    {
             echo "<option value='".$row['vida_util']."' ";
-                 if($_POST['id_cuentacontable']==$row['vida_util'])
+                 if($_POST['nombre_cuenta']==$row['vida_util'])
 
                   echo "SELECTED";
                   echo ">";
@@ -49,7 +51,7 @@ mysql_select_db("sys_activofijo");
 </div>
 <div class="form-group">
                 <label>Vida Util</label>
-                <input type="text" name="vida_util" readonly id="vida_util"  value=" <?php echo $_POST['id_cuentacontable']; ?>" >
+                <input type="text" name="vida_util" readonly id="vida_util"  value=" <?php echo $_POST['nombre_cuenta']; ?>" >
                 
               </div>
 
@@ -107,26 +109,38 @@ mysql_select_db("sys_activofijo");
                 <textarea class="form-control" name="descripcion" rows="3" value="<?= set_value('descripcion');?>"></textarea>
               </div>
 
-
   <p>
           <label>Estado del Activo</label>            
-          <input type="radio" name="estado" value="nuevo" 
-          <?php echo set_radio('estado', 'nuevo', TRUE); ?>/>
+          <input type = "radio"
+                 name = "estado"
+                 id = "estado"
+                 value="<?= set_value('estado');?>"
+                 checked = "checked" />
           <label for = "sizeSmall">Nuevo</label>
-           <input type="radio" name="estado" value="usado" 
-          <?php echo set_radio('estado', 'usado', TRUE); ?>/>
+          
+          <input type = "radio"
+                 name = "estado"
+                 id = "estado"
+                 value="<?= set_value('estado');?>"
+                />
           <label for = "sizeMed">Usado</label>
            </p>
            <p></p> 
            <p></p>  
            <p>
    <label>Valor del activo</label>  
-         <input type="radio" name="tipo_valor" value="real" 
-         <?php echo set_radio('tipo_valor', 'real'); ?>/>
+          <input type = "radio"
+                 name = "valor_original"
+                 id = "valor_riginal"
+                 checked = "checked"
+                 value="<?= set_value('valor_original');?>"
+                 />
           <label for = "sizeLarge">Real</label>
-          <input type="radio" name="tipo_valor" value="estimado" 
-          <?php echo set_radio('tipo_valor', 'estimado'); ?>/>
-                
+           <input type = "radio"
+                 name = "valor_original"
+                 id = "valor_original" 
+                 value="<?= set_value('valor_original');?>"
+                  />
           <label for = "sizeMed">Estimado</label>
           </p>
               <ol class="breadcrumb">
