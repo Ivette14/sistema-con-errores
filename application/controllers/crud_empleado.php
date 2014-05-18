@@ -17,8 +17,7 @@ parent::__construct();
     public function index()
     {
         //obtenemos todos los empleado
-        $empleados = $this->crud_model_empleado->get_empleados();
-        $datos['arrsucursales'] = $this->crud_model_empleado->get_sucursales();
+        $empleados = $this->crud_model_empleado->tabla();        
         //creamos una variable empleados para pasarle a la vista
         $data['empleados'] = $empleados;
         //cargamos nuestra vista
@@ -30,10 +29,11 @@ parent::__construct();
 
     public function agregar()
     {
-        $datos['arrsucursales'] = $this->crud_model_empleado->get_sucursales();
+        $datos['sucursal'] = $this->crud_model_empleado->sucur();
          //Si Existe Post y es igual a uno
         if($this->input->post('post') && $this->input->post('post')==1)
         {
+            $this->form_validation->set_rules('id_empleado', 'Codigo de Empleado', 'required|trim|xss_clean');
             $this->form_validation->set_rules('id_sucursal', 'Sucursal', 'required|trim|xss_clean');
             $this->form_validation->set_rules('nombre_empleado', '  Nombre de Empleado', 'required|trim|xss_clean');
             $this->form_validation->set_rules('telefono_empleado', 'Telefono', 'required|numeric|trim|xss_clean');
@@ -45,12 +45,13 @@ parent::__construct();
             $this->form_validation->set_message('valid_email','El Campo <b>%s</b> Solo acepta formato de correo');
             if ($this->form_validation->run() == TRUE)
             {
+                $id_empleado        = $this->input->post('id_empleado');
                 $id_sucursal        = $this->input->post('id_sucursal');
                 $nombre_empleado    = $this->input->post('nombre_empleado');
-                $direccion_empleado = $this->input->post('telefono_empleado');
-                $telefono_empleado  = $this->input->post('direccion_sucursal');
+                $direccion_empleado = $this->input->post('direccion_empleado');
+                $telefono_empleado  = $this->input->post('telefono_empleado');                               
                 $email_empleado     = $this->input->post('email_empleado');
-                $this->crud_model_empleado->agregar_empleado($id_sucursal,$nombre_empleado,$telefono_empleado,$direccion_empleado,$email_empleado);
+                $this->crud_model_empleado->agregar_empleado($id_empleado, $id_sucursal, $nombre_empleado, $direccion_empleado, $telefono_empleado, $email_empleado);
 
                 redirect('crud_empleado');               
             }
@@ -68,7 +69,7 @@ parent::__construct();
     {
         //verificamos si existe el id
         $respuesta = $this->crud_model_empleado->get_empleado($id_empleado);
-        $datos['arrsucursales'] = $this->crud_model_empleado->get_sucursales();
+        $datos['sucursal'] = $this->crud_model_empleado->sucur();
         //si nos retorna FALSE le mostramos la pag 404
         if($respuesta==false)
         show_404();
@@ -77,31 +78,35 @@ parent::__construct();
             //Si existe el post para editar
             if($this->input->post('post') && $this->input->post('post')==1)
             {
-                $this->form_validation->set_rules('id_sucursal', 'Sucursal', 'required|trim|xss_clean');
-                $this->form_validation->set_rules('nombre_empleado', '  Nombre de Empleado', 'required|trim|xss_clean');
-                $this->form_validation->set_rules('telefono_empleado', 'Telefono', 'required|numeric|trim|xss_clean');
-                $this->form_validation->set_rules('direccion_empleado', 'Direccion', 'required|trim|xss_clean');
-                $this->form_validation->set_rules('email_empleado', 'Email', 'required|is_unique[users.email]');
+            $this->form_validation->set_rules('id_empleado', 'Codigo de Empleado', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('id_sucursal', 'Sucursal', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('nombre_empleado', '  Nombre de Empleado', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('telefono_empleado', 'Telefono', 'required|numeric|trim|xss_clean');
+            $this->form_validation->set_rules('direccion_empleado', 'Direccion', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('email_empleado', 'Email', 'required|valid_email');
              
-                $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
-                $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
+            $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
+            $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
+            $this->form_validation->set_message('valid_email','El Campo <b>%s</b> Solo acepta formato de correo');
             if ($this->form_validation->run() == TRUE)
             {
+                $id_empleado        = $this->input->post('id_empleado');
                 $id_sucursal        = $this->input->post('id_sucursal');
                 $nombre_empleado    = $this->input->post('nombre_empleado');
-                $direccion_empleado = $this->input->post('telefono_empleado');
-                $telefono_empleado  = $this->input->post('direccion_sucursal');
+                $direccion_empleado = $this->input->post('direccion_empleado');
+                $telefono_empleado  = $this->input->post('telefono_empleado');                               
                 $email_empleado     = $this->input->post('email_empleado');
-                $this->crud_model_empleado->actualizar_empleado($id_empleado,$id_sucursal,$nombre_empleado,$telefono_empleado,$direccion_empleado,$email_empleado);
+                $this->crud_model_empleado->actualizar_empleado($id_empleado, $id_sucursal, $nombre_empleado, $direccion_empleado, $telefono_empleado, $email_empleado);
 
-                redirect('crud_empleado');                
-                }
+                redirect('crud_empleado');               
+            }
+            
             }
             //devolvemos los datos del usuario
             $data['dato'] = $respuesta;
             //cargamos la vista
             $this->load->view('header/header');
-            $this->load->view('form/editar_empleado',$datos);
+            $this->load->view('form/editar_empleado', $data, $datos);
             $this->load->view('footer');
         }
     }
