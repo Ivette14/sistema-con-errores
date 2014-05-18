@@ -24,8 +24,7 @@
                                             <th>Codigo Traslado de Activo</th>
                                             <th>Codigo de Activo</th>
                                             <th>Motivo de Traslado</th>
-                                            <th>Fecha de Traslado</th>
-                                            <th>Solicitud de Traslado</th>
+                                            <th>Fecha de Traslado</th>                                            
                                             <th>Emisor de Traslado</th>
                                             <th>Receptor de Traslado</th>
                                             <th>Editar</th>
@@ -36,14 +35,13 @@
                                             <?php foreach ($traslados as $traslado):?>
                                             <tr>
                                             <td><?= $traslado->codigo_traslado?></td>   
-                                            <td><?= $traslado->codigo_activo?></td> 
+                                            <td><?= $traslado->id_activofijo?></td> 
                                             <td><?= $traslado->motivo_traslado?></td> 
-                                            <td><?= $traslado->fecha_traslado?></td>
-                                            <td><?= $traslado->solicitud_traslado?></td>
-                                            <td><?= $traslado->emisor_traslado?></td>
-                                            <td><?= $traslado->receptor_traslado?></td>
-                                            <td><a href="<?= base_url().'crud_traslado/Editar/'.$traslado->id_traslado_activo?>">Editar</a></td>
-                                            <td><a href="<?= base_url().'crud_traslado/eliminar/'.$traslado->id_traslado_activo?>">Eliminar</a></td> 
+                                            <td><?= $traslado->fecha_traslado?></td>                                            
+                                            <td><?= $traslado->nombre_sucursal?></td>
+                                            <td><?= $traslado->nombre_sucursal?></td>
+                                             <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud_area/editar/'.$traslado->id_traslado_activo; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Editar</button></td>
+                                            <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud_area/eliminar/'.$traslado->id_traslado_activo; ?>" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i>&nbsp;Eliminar</button></td> 
                                             </tr>
                                             <?php endforeach ;?>                                    
                                     </tbody>

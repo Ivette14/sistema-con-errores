@@ -22,6 +22,7 @@
                                     <thead>
                                         <tr>
                                             <th>Sucursal</th>
+                                            <th>Codigo de Empleado</th>
                                             <th>Nombre del Empleado</th>
                                             <th>Direccion</th>
                                             <th>Telefono</th>
@@ -33,7 +34,8 @@
                                     <tbody>
                                             <?php foreach ($empleados as $empleado):?>
                                             <tr>
-                                            <td><?= $empleado->id_sucursal?></td>                                      
+                                            <td><?= $empleado->nombre_sucursal?></td> 
+                                            <td><?= $empleado->codigo_empleado?></td>                                     
                                             <td><?= $empleado->nombre_empleado?></td> 
                                             <td><?= $empleado->direccion_empleado?></td> 
                                             <td><?= $empleado->telefono_empleado?></td>

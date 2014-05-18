@@ -17,7 +17,7 @@ parent::__construct();
     public function index()
     {
         //obtenemos todos los empleado
-        $traslados = $this->crud_model_traslado->get_traslados();       
+        $traslados = $this->crud_model_traslado->tabla();       
         //creamos una variable empleados para pasarle a la vista
         $data['traslados'] = $traslados;
         //cargamos nuestra vista
@@ -29,29 +29,28 @@ parent::__construct();
 
     public function agregar()
     {
+        $datas['sucursal'] = $this->crud_model_traslado->sucur();
         //Si Existe Post y es igual a uno
         if($this->input->post('post') && $this->input->post('post')==1)
         {
             $this->form_validation->set_rules('codigo_traslado', 'Codigo de Traslado de Activo', 'required|trim|xss_clean');
             $this->form_validation->set_rules('codigo_activo', 'Codigo Activo', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('Motivo_traslado', 'Motivo de Traslado', 'required|numeric|trim|xss_clean');
-            $this->form_validation->set_rules('Fecha_traslado', 'Fecha de Traslado', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('solicitud_traslado', 'Solicitud de Traslado', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('emisor_traslado', 'Emisor de Traslado', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('receptor_traslado', 'Receptor de Traslado', 'required|trim|xss_clean');
-             
+            $this->form_validation->set_rules('motivo_traslado', 'Motivo de Traslado', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('fecha_traslado', 'Fecha de Traslado', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('id_sucursal', 'Emisor de Traslado', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('id_sucursal_r', 'Receptor de Traslado', 'required|trim|xss_clean');
+
             $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
             $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
             if ($this->form_validation->run() == TRUE)
             {
                 $codigo_traslado    = $this->input->post('codigo_traslado');
                 $codigo_activo      = $this->input->post('codigo_activo');
-                $Motivo_traslado    = $this->input->post('Motivo_traslado');
-                $Fecha_traslado     = $this->input->post('Fecha_traslado');
-                $solicitud_traslado = $this->input->post('solicitud_traslado');
-                $emisor_traslado    = $this->input->post('emisor_traslado');
-                $receptor_traslado  = $this->input->post('receptor_traslado');
-                $this->crud_model_traslado->agregar_traslado($codigo_traslado, $codigo_activo, $motivo_traslado, $fecha_traslado, $solicitud_traslado, $emisor_traslado, $receptor_traslado);
+                $motivo_traslado    = $this->input->post('motivo_traslado');
+                $fecha_traslado     = $this->input->post('fecha_traslado');                
+                $id_sucursal        = $this->input->post('id_sucursal');
+                $id_sucursal_r        = $this->input->post('id_sucursal_r');
+                $this->crud_model_traslado->agregar_traslado($codigo_traslado, $codigo_activo, $motivo_traslado, $fecha_traslado, $id_sucursal, $id_sucursal_r);
 
                 redirect('crud_traslado');               
             }
@@ -59,7 +58,7 @@ parent::__construct();
 
          //cargamos nuestra vista
         $this->load->view('header/header');
-        $this->load->view('form/a_traslado',$datos);
+        $this->load->view('form/a_traslado',$datas);
         $this->load->view('footer');
     
 

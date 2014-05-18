@@ -63,7 +63,7 @@ parent::__construct();
     {
         //verificamos si existe el id
         $respuesta = $this->crud_model_area->get_area($id_area);
-        $datos['arrsucursales'] = $this->crud_model_area->get_area();
+        $datos['sucursal'] = $this->crud_model_area->sucur();
         //si nos retorna FALSE le mostramos la pag 404
         if($respuesta==false)
         show_404();
@@ -73,7 +73,7 @@ parent::__construct();
             if($this->input->post('post') && $this->input->post('post')==1)
             {
             $this->form_validation->set_rules('nombre_area', 'Nombre de area', 'required|trim|xss_clean');
-            $this->form_validation->set_rules('id_area', 'sucursal', 'required|trim|xss_clean');
+            $this->form_validation->set_rules('id_sucursal', 'Sucursal', 'required|trim|xss_clean');
          
              
             $this->form_validation->set_message('required','El Campo <b>%s</b> Es Obligatorio');
@@ -83,7 +83,7 @@ parent::__construct();
                 $nombre_area        = $this->input->post('nombre_area');
                 $id_sucursal        = $this->input->post('id_sucursal');
 
-                $this->crud_model_area->agregar_area($nombre_sucursal, $nombre_area, $id_area);
+                $this->crud_model_area->actualizar_area ($id_area, $nombre_area, $id_sucursal);
 
                 redirect('crud_area');               
             }
@@ -91,7 +91,7 @@ parent::__construct();
             //devolvemos los datos del usuario
             $data['dato'] = $respuesta;
             //cargamos la vista
-            $this->load->view('header/header');
+            $this->load->view('header/header',$data);
             $this->load->view('form/editar_area',$datos);
             $this->load->view('footer');
         }

@@ -12,7 +12,11 @@
             
             <ol class="breadcrumb">
              
+<<<<<<< HEAD
               <li class="active"></i><center><h4> Gestor de Activos Fijos</h4></center></li>
+=======
+              <li class="active"></i><center><h4> Gestor de Usuarios</h4></center></li>
+>>>>>>> 45754fc25216f73780dbf682dc6d4490cdd43a97
             </ol>
             
           </div>

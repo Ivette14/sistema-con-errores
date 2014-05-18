@@ -21,12 +21,12 @@
         ));
     }
     //actualizamos los datos de un empleado por id
-    public function actualizar_area($id_sucursal, $nombre_area)
+    public function actualizar_area($id_area, $nombre_area, $id_sucursal)
     {
         $this->db->where('id_area', $id_area);
-        $this->db->update('cat_area',array(
-            'id_sucursal'        => $id_sucursal,
-            'nombre_area'        => $nombre_area
+        $this->db->update('cat_area',array(            
+            'nombre_area'        => $nombre_area,
+            'id_sucursal'        => $id_sucursal
         ));
     }
     //eliminamos un empleado por id
@@ -56,12 +56,11 @@
 
     public function tabla()
     {        
-       $query = $this->db->query('SELECT "cat_sucursal.nombre_sucursal", "cat_area.nombre_area"  
+       $query = $this->db->query('SELECT cat_sucursal.nombre_sucursal, cat_area.nombre_area, cat_area.id_area
                                     FROM cat_area 
-                                    INNER JOIN cat_sucursal ON "cat_sucursal.id_sucursal" = "cat_area.id_sucursal"');
+                                     INNER JOIN cat_sucursal ON cat_sucursal.id_sucursal = cat_area.id_sucursal');
        return $query->result();    
     }
-
 
 }
 

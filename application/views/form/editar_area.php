@@ -13,20 +13,24 @@
           <div class="col-lg-6">
 
             <form method="post" role="form">
+
               <div class="form-group">
                 <label>Nombre del Area</label>
-                <input name="nombre_area" class="form-control" value="<?= set_value('nombre_area');?>">
+                <input name="nombre_area" class="form-control" value="<?= set_value('nombre_area',$dato['nombre_area']);?>">
               </div>
 
               <div class="form-group">
-                <label>Sucursal</label>
-                <select class="form-control" name="id_sucursal" value="<?= set_value('id_sucursal');?>">
-                <?php
-                  foreach ($arrsucursales as $i => $id_sucursal)
-                  echo '<option values="',$i,'">',$id_sucursal,'</option>';
-                ?>
-                </select>
-              </div>
+                <select name="id_sucursal" class="form-control" id="id_sucursal" value="<?= set_value('id_sucursal',$dato['id_sucursal']);?>">
+          <?php 
+              foreach($sucursal as $fila)
+              {
+          ?>
+            <option value="<?=$fila -> id_sucursal ?>"><?=$fila -> nombre_sucursal ?></option>
+          <?php
+              }
+          ?>        
+              </select>
+              </div> 
  
 
               <div class="form-group">

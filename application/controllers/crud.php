@@ -81,10 +81,10 @@ parent::__construct();
             $this->form_validation->set_message('numeric','El Campo <b>%s</b> Solo Acepta Números');
                 if ($this->form_validation->run() == TRUE)
                 {
-                $nombre_sucursal = $this->input->post('nombre_sucursal');
-                $telefono_sucursal = $this->input->post('telefono_sucursal');
+                $nombre_sucursal    = $this->input->post('nombre_sucursal');
+                $telefono_sucursal  = $this->input->post('telefono_sucursal');
                 $direccion_sucursal = $this->input->post('direccion_sucursal');
-                $departamento = $this->input->post('departamento');
+                $departamento       = $this->input->post('departamento');
                 $this->crud_model->actualizar_sucursal($id_sucursal,$nombre_sucursal,$telefono_sucursal,$direccion_sucursal,$departamento);
                     //redireccionamos al controlador CRUD
                     redirect('crud');               
