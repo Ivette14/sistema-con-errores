@@ -20,6 +20,9 @@
 
     <title>Sistema de Activo Fijo</title>
      
+    <!-- Código del Icono -->
+    <link href="<?php echo base_url().'seteo/logos/logo5_pestaña.ico'; ?>" type="image/x-icon" rel="shortcut icon" />
+    
 
     <!-- Core CSS - Include with every page -->
     <link href="<?php echo base_url().'seteo/css/bootstrap.min.css'; ?>" rel="stylesheet">
