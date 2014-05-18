@@ -3,15 +3,22 @@
         <!-- JQUERY UI --> 
         <script src="js/jquery-ui-1.10.4.custom.js"></script> 
         <script src="js/jquery-ui-1.10.4.custom.min.js"></script> 
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
+
+
+
+<div class="row">
+          <div class="col-lg-12">
+          <br><br>
+            
+            <ol class="breadcrumb">
+             
+              <li class="active"></i><center><h4> Gestor de Activos Fijos</h4></center></li>
+            </ol>
+            
+          </div>
+        </div>
+
+
 <div class="container-fluid"> 
 
  
