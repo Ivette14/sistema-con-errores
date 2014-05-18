@@ -11,7 +11,7 @@
         </div><!-- /.row -->
 
             <!-- /.row -->
-        <div class="form-group"> <button type="button" onclick=location="<?php echo base_url().'crud_activo/agregar'; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Nuevo</button></div>       
+        <div class="form-group"> <button type="button" onclick=location="<?php echo base_url().'crud_activo/agregar'; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;Agregar</button></div>       
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -23,8 +23,13 @@
                                     <thead>
                                         <tr>
                                             <th>Codigo</th>
-                                            <th> Nombre de activo</th>
-                                            <th> Descripcion </th>
+                                            <th>Nombre AF</th>
+                                            <th>Cuenta</th>
+                                            <th>Sucursal </th>
+                                            <th>Area </th>
+                                            <th>Responsable </th>
+                                            <th>Proveedor </th>
+                                        <!--    <th> Descripcion </th> -->
                                           
                                     <!--        <th>Editar</th>
                                             <th>Eliminar</th> -->
@@ -37,8 +42,13 @@
                                             <?php foreach ($activo as $activo):?>
                                             <tr>
                                             <td><?= $activo->id_activofijo?></td> 
-                                            <td><?= $activo->nombre_activo_fijo?></td>   
-                                            <td><?= $activo->descripcion?></td> 
+                                            <td><?= $activo->nombre_activo_fijo?></td>
+                                            <td><?= $activo->nombre_cuenta?></td> 
+                                            <td><?= $activo->nombre_sucursal?></td> 
+                                            <td><?= $activo->nombre_area?></td>
+                                            <td><?= $activo->nombre_empleado?></td>
+                                            <td><?= $activo->nombre_provee?></td> 
+                                       <!-- <td><?= $activo->descripcion?></td>   -->
                                          
                                      <!--         <input  type="hidden" name="post" value="1" /> 
                                             <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud_activo/editar/'.$activo->id_activofijo; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Editar</button></td>

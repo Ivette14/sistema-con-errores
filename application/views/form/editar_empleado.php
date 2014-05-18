@@ -7,41 +7,48 @@
             </ol>
              
           </div>
-        </div><!-- /.row -->
-
-        
+        </div><!-- /.row -->        
         <div class="row">
           <div class="col-lg-6">
             <form method="post" role="form">
 
-                <div class="form-group">
-                <label>Sucursal</label>
-                <select class="form-control" name="id_sucursal" value="<?= set_value('id_sucursal');?>">
-                <?php
-                  foreach ($arrsucursales as $i => $sucursal)
-                  echo '<option values="',$i,'">',$sucursal,'</option>';
-                ?>
-                </select>
+              <div class="form-group">
+                <label>Codigo de empleado</label>
+                <input name="id_empleado" class="form-control" value="<?= set_value('id_empleado',$dato['id_empleado']);?>">
               </div>
+
+              <label>Sucursal en la que operara</label>
+                 <div class="form-group">
+              <select name="id_sucursal" class="form-control" id="id_sucursal">
+                 <?php 
+                foreach($sucursal as $fila)
+                {
+                 ?>
+            <option value="<?=$fila -> id_sucursal ?>"><?=$fila -> nombre_sucursal ?></option>
+                <?php
+                }
+                ?>        
+              </select>
+              </div>    
 
               <div class="form-group">
                 <label>Nombre del empleado</label>
-                <input name="nombre_empleado" class="form-control" value="<?= set_value('nombre_empleado');?>">
-              </div>
-
-              <div class="form-group">
-                <label>Telefono</label>
-                <input name="telefono_empleado" class="form-control" value="<?= set_value('telefono_empleado');?>">
+                <input name="nombre_empleado" class="form-control" value="<?= set_value('nombre_empleado',$dato['nombre_empleado']);?>">
               </div>
 
               <div class="form-group">
                 <label>Direccion</label>
-                <input name="direccion_empleado"class="form-control" value="<?= set_value('direccion_empleado');?>">
+                <input name="direccion_empleado" class="form-control" value="<?= set_value('direccion_empleado',$dato['direccion_empleado']);?>">
               </div>
+
+              <div class="form-group">
+                <label>Telefono</label>
+                <input name="telefono_empleado" class="form-control" value="<?= set_value('telefono_empleado',$dato['telefono_empleado']);?>">
+              </div>              
 
                <div class="form-group">
                 <label>Email</label>
-                <input name="email_empleado" class="form-control" value="<?= set_value('email_empleado');?>">
+                <input name="email_empleado" class="form-control" value="<?= set_value('email_empleado',$dato['email_empleado']);?>">
               </div> 
 
               <div class="form-group">
@@ -49,9 +56,8 @@
                 <button type="submit" value="editar" class="btn btn-primary">Guardar</button>
                 <button type="button" onclick=location="<?php echo base_url().'crud_empleado/index'; ?>" class="btn btn-primary">Cancelar</button>
               </div>
+
             </form>
-
-
            </div>
         </div><!-- /.row -->
         <?= validation_errors(); ?>

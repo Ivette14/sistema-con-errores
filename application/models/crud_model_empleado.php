@@ -12,9 +12,10 @@
         return $sql->result();
     }
     //agregamos un empleado
-    public function agregar_empleado($id_sucursal, $nombre_empleado, $direccion_empleado, $telefono_empleado, $email_empleado)
+    public function agregar_empleado($id_empleado, $id_sucursal, $nombre_empleado, $direccion_empleado, $telefono_empleado, $email_empleado)
     {
         $this->db->insert('cat_empleado',array(
+            'id_empleado'        => $id_empleado,
             'id_sucursal'        => $id_sucursal,
             'nombre_empleado'    => $nombre_empleado,
             'direccion_empleado' => $direccion_empleado,
@@ -23,14 +24,14 @@
         ));
     }
     //actualizamos los datos de un empleado por id
-    public function actualizar_empleado($id_sucursal, $nombre_empleado, $direccion_empleado, $telefono_empleado, $email_empleado)
+    public function actualizar_empleado($id_sucursal, $nombre_empleado, $telefono_empleado, $direccion_empleado, $email_empleado)
     {
         $this->db->where('id_empleado', $id_empleado);
         $this->db->update('cat_empleado',array(
             'id_sucursal'        => $id_sucursal,
             'nombre_empleado'    => $nombre_empleado,
-            'direccion_empleado' => $direccion_empleado,
             'telefono_empleado'  => $telefono_empleado,
+            'direccion_empleado' => $direccion_empleado,           
             'email_empleado'     => $email_empleado
         ));
     }
@@ -49,22 +50,26 @@
         return false;
     }
 
-    function get_sucursales(){
+     public function sucur()
+    {
+        $this->db->order_by('nombre_sucursal','asc');
+        $sucursal = $this->db->get('cat_sucursal');
+        if($sucursal->num_rows()>0)
+        {
+            return $sucursal->result();
+        }
+    }
 
-    // armamos la consulta
-    $query = $this->db-> query('SELECT id_sucursal,nombre_sucursal FROM cat_sucursal');
+     public function tabla()
+    {        
+       $query = $this->db->query('SELECT cat_sucursal.nombre_sucursal, cat_empleado.id_empleado, cat_empleado.nombre_empleado,
+                                            cat_empleado.direccion_empleado, cat_empleado.telefono_empleado, cat_empleado.email_empleado
+                                    FROM cat_empleado 
+                                     INNER JOIN cat_sucursal ON cat_sucursal.id_sucursal = cat_empleado.id_sucursal');
+       return $query->result();    
+    }
 
-    // si hay resultados
-    if ($query->num_rows() > 0) {
-        // almacenamos en una matriz bidimensional
-        foreach($query->result() as $row)
-           $arrDatos[htmlspecialchars($row->id_sucursal, ENT_QUOTES)] = 
-            htmlspecialchars($row->nombre_sucursal, ENT_QUOTES);
-
-        $query->free_result();
-        return $arrDatos;
-     }
-}
+     
 }
 
 ?>
