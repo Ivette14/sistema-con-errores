@@ -21,12 +21,12 @@
         ));
     }
     //actualizamos los datos de un empleado por id
-    public function actualizar_area($id_sucursal, $nombre_area)
+    public function actualizar_area($id_area, $nombre_area, $id_sucursal)
     {
         $this->db->where('id_area', $id_area);
-        $this->db->update('cat_area',array(
-            'id_sucursal'        => $id_sucursal,
-            'nombre_area'        => $nombre_area
+        $this->db->update('cat_area',array(            
+            'nombre_area'        => $nombre_area,
+            'id_sucursal'        => $id_sucursal
         ));
     }
     //eliminamos un empleado por id

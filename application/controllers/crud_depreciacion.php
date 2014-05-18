@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+<?php 
+=======
 ﻿<?php 
+>>>>>>> 45754fc25216f73780dbf682dc6d4490cdd43a97
     class Crud_depreciacion extends CI_Controller
 {
     public function __construct()
@@ -9,20 +13,42 @@ parent::__construct();
         $this->load->helper('url');
         $this->load->library('pagination');
         $this->load->library(array('session','form_validation'));
+<<<<<<< HEAD
+        $this->load->model("crud_model_depreciacion");
+=======
         $this->load->model("crud_model");
+>>>>>>> 45754fc25216f73780dbf682dc6d4490cdd43a97
         $this->load->helper(array('form'));
         $this->load->library('form_validation');
     }
      
     public function index()
     {
+<<<<<<< HEAD
+          //obtenemos todos los activos
+        $activo = $this->crud_model_depreciacion->get_activos();
+        //creamos una variable activos para pasarle a la vista
+        $data['saldo'] = $activo;
+        
+        $this->load->view('header/header');
+        $this->load->view('form/frmdepreciacion', $data);
+=======
        
         $this->load->view('header/header');
         $this->load->view('form/frmdepreciacion');
+>>>>>>> 45754fc25216f73780dbf682dc6d4490cdd43a97
         $this->load->view('footer');
     
     }
 
+<<<<<<< HEAD
+    
+     
+    public function depreciacion($id_activofijo=0)
+    {
+        //verificamos si existe el id
+        $respuesta = $this->crud_model_depreciacion->get_activo($id_activofijo);
+=======
     public function agregar()
     {
          //Si Existe Post y es igual a uno
@@ -60,11 +86,14 @@ parent::__construct();
     {
         //verificamos si existe el id
         $respuesta = $this->crud_model->get_sucursal($id_sucursal);
+>>>>>>> 45754fc25216f73780dbf682dc6d4490cdd43a97
         //si nos retorna FALSE le mostramos la pag 404
         if($respuesta==false)
         show_404();
         else
         {
+<<<<<<< HEAD
+=======
             //Si existe el post para editar
             if($this->input->post('post') && $this->input->post('post')==1)
             {
@@ -86,15 +115,23 @@ parent::__construct();
                     redirect('crud');               
                 }
             }
+>>>>>>> 45754fc25216f73780dbf682dc6d4490cdd43a97
             //devolvemos los datos del usuario
             $data['dato'] = $respuesta;
             //cargamos la vista
             $this->load->view('header/header');
+<<<<<<< HEAD
+            $this->load->view('form/depreciacion',$data);
+=======
             $this->load->view('form/editar_sucursal',$data);
+>>>>>>> 45754fc25216f73780dbf682dc6d4490cdd43a97
             $this->load->view('footer');
         }
     }
      
+<<<<<<< HEAD
+  
+=======
     public function eliminar($id_sucursal=0)
     {
         //verificamos si existe el id
@@ -110,5 +147,6 @@ parent::__construct();
             redirect('crud'); 
         }
     }
+>>>>>>> 45754fc25216f73780dbf682dc6d4490cdd43a97
 }
 ?>

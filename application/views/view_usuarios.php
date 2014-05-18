@@ -12,7 +12,11 @@
             
             <ol class="breadcrumb">
              
+
+              <li class="active"></i><center><h4> Gestor de Activos Fijos</h4></center></li>
+
               <li class="active"></i><center><h4> Gestor de Usuarios</h4></center></li>
+
             </ol>
             
           </div>

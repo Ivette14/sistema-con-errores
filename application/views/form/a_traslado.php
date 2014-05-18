@@ -1,4 +1,4 @@
- <div class="row">
+id_sucursal <div class="row">
   <div class="col-lg-12">
      <br><br>
             <ol class="breadcrumb">
@@ -25,28 +25,39 @@
 
               <div class="form-group">
                 <label>Motivo de Traslado </label>
-                <input name="motivo_taslado" class="form-control" value="<?= set_value('motivo_taslado');?>">
+                <input name="motivo_traslado" class="form-control" value="<?= set_value('motivo_traslado');?>">
               </div>
 
               <div class="form-group">
                 <label>Fecha de Traslado </label>
-                <input type="date" name="fecha" name="fecha_traslado" class="form-control" value="<?= set_value('fecha_traslado');?>">
-              </div>
+                <input type="date" name="fecha_traslado" class="form-control" value="<?= set_value('fecha_traslado');?>">
+              </div>              
 
               <div class="form-group">
-                <label>Solicitud de Traslado </label>                
-                <input type="radio" name="solicitud_traslado" id="optionsRadios1" value="<?= set_value('solicitud_traslado');?>"> Ok
-              </div>
+                <select name="id_sucursal" class="form-control" id="id_sucursal">
+          <?php 
+              foreach($sucursal as $fila)
+              {
+          ?>
+            <option value="<?=$fila -> id_sucursal ?>"><?=$fila -> nombre_sucursal ?></option>
+          <?php
+              }
+          ?>        
+              </select>
+              </div> 
 
-              <div class="form-group">
-                <label>Emisor de Traslado </label>
-                <input name="emisor_traslado" class="form-control" value="<?= set_value('emisor_traslado');?>">
-              </div>
-
-              <div class="form-group">
-                <label>Receptor de Traslado </label>
-                <input name="receptor_traslado" class="form-control" value="<?= set_value('receptor_traslado');?>">
-              </div>
+          <div class="form-group">
+                <select name="id_sucursal_r" class="form-control" id="id_sucursal_r">
+          <?php 
+              foreach($sucursal as $fila)
+              {
+          ?>
+            <option value="<?=$fila -> id_sucursal ?>"><?=$fila -> nombre_sucursal ?></option>
+          <?php
+              }
+          ?>        
+              </select>
+              </div> 
 
               <div class="form-group">
                 <input  type="hidden" name="post" value="1" />                

@@ -13,27 +13,7 @@
 
             <form action="<?php echo base_url().'Sucursal/insertar_sucursal'; ?>" id="mi_form" method="post" role="form">
 
-              <div class="form-group">
-                <label>Año o Mes</label>
-                <input name="direccion_sucursal" class="form-control">
-              </div>
-
-              <div class="form-group">
-                  <label for="disabledSelect">Seleccione una Cuenta</label>
-                  <select id="disabledSelect" name="departamento" class="form-control">
-                  <option>Seleccione un Dapartamento</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
- 
-
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Calcular</button>                
-              </div>              
+                     
 
 
             </form>
@@ -53,28 +33,28 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Nombre de la Sucursal</th>
-                                            <th>Telefono</th>
-                                            <th>Direccion</th>
-                                            <th>Departamento</th>
-                                            <th>Editar</th>
-                                            <th>Eliminar</th>
+                                            <th>Codigo de Activo</th>
+                                            <th>Nombre</th>
+                                            <th>Nombre Cuenta</th>
+                                            <th>Depreciacion Mensual</th>
+                                              <th>importe </th>
+                                            <th>Accion</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                            <?php if(isset($sucursales)){ ;?>
-                                            <?php foreach ($sucursales as $sucursal):?>
+                                           
+                                            <?php foreach ($saldo as $saldo):?>
                                             <tr>
-                                            <td><?= $sucursal->nombre_sucursal?></td>   
-                                            <td><?= $sucursal->telefono_sucursal?></td> 
-                                            <td><?= $sucursal->direccion_sucursal?></td> 
-                                            <td><?= $sucursal->departamento?></td>
-                                            <td><a href="<?= base_url().'crud/actualizar_sucursal/'.$sucursal->id_sucursal?>">Editar</a></td>
-                                            <td><a href="<?= base_url().'crud/eliminar_sucursal/'.$sucursal->id_sucursal?>">Eliminar</a></td> 
+                                            <td><?= $saldo->id_activofijo?></td>   
+                                            <td><?= $saldo->nombre_activo_fijo?></td> 
+                                            <td><?= $saldo->id_cuentacontable?></td> 
+                                            <td> $ <?= $saldo->cuota_mensual?></td>
+                                            <td><input  name="importe_depreciable" readonly id="importe_depreciable"   value="<?= set_value('importe_depreciable');?>"> </td>
+                                            <td><input  name="valor_residual" readonly id="valor_residual"   value="<?= set_value('valor_residual');?>"> </td>
+                                             <td align="center"><button type="button" onclick=location="<?php echo base_url().'crud_depreciacion/depreciacion/'.$saldo->id_activofijo; ?>" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i>&nbsp;Depreciar</button></td>
+                                  
                                             </tr>
                                             <?php endforeach ;?>
-                                            <?php }; ?>
-                                    
                                     </tbody>
                                 </table>
                             </div>
